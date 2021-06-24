@@ -228,6 +228,7 @@ table {
     background-color: var(--white); }
 
 .program-info {
+  position: relative;
   display: grid;
   grid-template-columns: 40% 60%;
   font-family: var(--futura);
