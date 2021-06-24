@@ -1,0 +1,10 @@
+/* css */
+.sticky {
+  position: fixed;
+  right: 218px;
+  background-color: white;
+  height: min-content;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  top: 20px;
+}
