@@ -210,6 +210,19 @@ table {
   font-size: 30px;
   min-height: 80px; }
 
+.slate-form__wrapper {
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  max-width: 500px;
+  position: absolute;
+  margin-left: 5%;
+  margin-top: -150px; }
+  .slate-form__wrapper[data-fixed="true"] {
+    position: fixed;
+    top: 0; }
+
 .program-info {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -236,7 +249,8 @@ table {
 
 ul.why {
   list-style: none;
-  padding-left: 0; }
+  padding-left: 0;
+  margin-top: 20px; }
   ul.why .icon {
     margin-right: 24px;
     color: var(--red); }
