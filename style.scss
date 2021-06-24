@@ -1,0 +1,161 @@
+// RESETS
+.section {
+  margin: 0;
+}
+// END RESETS
+// Chapman CSS Vars
+:root {
+  --cu-red: #a50034;
+  --white: #ffffff;
+  --black: #231f20;
+  --red: #a50031;
+  --sand: #f6f2ea;
+  --futura: "futura-pt", Arial, sans-serif;
+}
+// End Chapman CSS Vars
+
+// Utility Classes
+.text-bold {
+  font-weight: bold;
+}
+.text-muted {
+  font-weight: 400;
+}
+.text-muted--300 {
+  font-weight: 300;
+}
+.futura {
+  font-family: var(--futura);
+}
+.text-red {
+  color: var(--red);
+}
+.text-black {
+  color: var(--black);
+}
+.bg-sand {
+  background-color: var(--sand);
+}
+.bg-black {
+  background-color: var(--black);
+  color: white;
+}
+.faux-h2 {
+  font-weight: bold;
+}
+// End Utility Classes
+
+// MASTHEAD
+.cu-mastead {
+  max-height: 500px;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--futura);
+  background-image: url("./images/mfa-doc-slider.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-position: fixed;
+  position: relative;
+  min-height: 550px;
+  top: 0;
+  margin-top: 0;
+  padding-top: 0;
+
+  // mask-image: url(https://www.chapman.edu/_files/img/hero-panels/fallback-images/masthead-wave-gradient.png);
+  // -webkit-mask-image: url(https://www.chapman.edu/_files/img/hero-panels/fallback-images/masthead-wave-gradient.png);
+
+  -webkit-mask-size: 100% 100%;
+}
+
+.cu-masthead__header {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border: 5px dotted;
+
+  &--wrapper {
+    background-image: url(/images/wave_border_bottom.png);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+  }
+}
+
+.cu-masthead__wrapper {
+  height: 600px;
+}
+
+span.header__text {
+  grid-column: 2;
+  max-width: 400px;
+  font-weight: bold;
+}
+// END MASTHEAD
+
+// PROGRAM INFO
+.program-info {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  font-family: var(--futura);
+  font-size: 24px;
+  & > div {
+    grid-column: 2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 580px;
+  }
+  &__stats {
+    display: flex;
+  }
+  .program-stat {
+    margin-right: 40px;
+
+    &__value {
+      margin-left: 48px;
+    }
+  }
+
+  .icon {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    margin-right: 12px;
+    font-size: 30px;
+  }
+}
+ul.why {
+  list-style: none;
+  padding-left: 0;
+  .icon {
+    margin-right: 24px;
+    color: var(--red);
+  }
+  li {
+    padding: 12px;
+  }
+}
+
+.testimonial {
+  display: flex;
+  &__photo-wrapper {
+    display: flex;
+    place-content: center;
+  }
+
+  img {
+    place-self: center;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &__text {
+    margin-left: 40px;
+  }
+}
+// END PROGRAM INFO
