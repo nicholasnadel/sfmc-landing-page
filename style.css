@@ -218,10 +218,14 @@ table {
   max-width: 500px;
   position: absolute;
   margin-left: 5%;
-  margin-top: -150px; }
-  .slate-form__wrapper[data-fixed="true"] {
-    position: fixed;
+  margin-top: -150px;
+  width: 400px; }
+  .slate-form__wrapper[data-sticky="true"] {
+    position: sticky;
     top: 0; }
+  .slate-form__wrapper > div:first-child {
+    position: absolute;
+    background-color: var(--white); }
 
 .program-info {
   display: grid;
