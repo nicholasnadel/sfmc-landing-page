@@ -217,7 +217,7 @@ table {
   background-color: var(--white);
   max-width: 500px;
   position: absolute;
-  margin-left: 5%;
+  margin-left: 10%;
   margin-top: -150px;
   width: 400px; }
   .slate-form__wrapper[data-sticky="true"] {
@@ -226,6 +226,10 @@ table {
   .slate-form__wrapper > div:first-child {
     position: absolute;
     background-color: var(--white); }
+
+label.form_label {
+  font-weight: bold;
+  font-family: var(--futura); }
 
 .program-info {
   position: relative;
