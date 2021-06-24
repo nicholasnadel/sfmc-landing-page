@@ -225,10 +225,10 @@ table {
     top: 0; }
   .slate-form__wrapper > div:first-child {
     position: absolute;
-    background-color: var(--white); }
-  .slate-form__wrapper label.form_label {
-    font-weight: bold;
+    background-color: var(--white);
     font-family: var(--futura); }
+  .slate-form__wrapper label.form_label {
+    font-weight: bold; }
   .slate-form__wrapper .action {
     display: flex;
     justify-content: center; }
@@ -237,7 +237,10 @@ table {
       color: var(--white);
       border: none;
       border-radius: 4px;
-      font-family: var(--futura); }
+      font-family: var(--futura);
+      min-width: 80px;
+      font-size: 16px;
+      padding: 4px; }
   .slate-form__wrapper form {
     padding: 30px; }
 
