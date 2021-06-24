@@ -226,10 +226,20 @@ table {
   .slate-form__wrapper > div:first-child {
     position: absolute;
     background-color: var(--white); }
-
-label.form_label {
-  font-weight: bold;
-  font-family: var(--futura); }
+  .slate-form__wrapper label.form_label {
+    font-weight: bold;
+    font-family: var(--futura); }
+  .slate-form__wrapper .action {
+    display: flex;
+    justify-content: center; }
+    .slate-form__wrapper .action button.default {
+      background-color: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: var(--futura); }
+  .slate-form__wrapper form {
+    padding: 30px; }
 
 .program-info {
   position: relative;
