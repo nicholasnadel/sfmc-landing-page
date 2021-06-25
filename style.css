@@ -87,7 +87,7 @@
         min-height: 300px; } }
 
 .cu-masthead__wrapper {
-  height: 600px; }
+  height: 100%; }
 .cu-masthead__label {
   grid-column: 2;
   max-width: 550px;
