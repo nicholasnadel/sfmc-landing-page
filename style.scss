@@ -120,8 +120,7 @@
     min-height: 80px;
     @media only screen and (max-width: 1024px) {
       min-height: 115px;
-      padding-left: 20px;
-      padding-right: 20px;
+      max-width: 80vw;
     }
   }
 }
@@ -217,10 +216,8 @@ section {
     min-width: 580px;
 
     @media only screen and (max-width: 581px) {
-      max-width: unset;
-      min-width: unset;
-      padding-left: 20px;
-      padding-right: 20px;
+      max-width: 80vw;
+      min-width: 80vw;
     }
   }
   &__stats {
@@ -346,9 +343,9 @@ ul.why {
     margin: unset;
 
     .action button.default {
-      min-width: 200px;
+      min-width: 150px;
       padding: 20px;
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }

@@ -97,8 +97,7 @@
   @media only screen and (max-width: 1024px) {
     .cu-masthead__label {
       min-height: 115px;
-      padding-left: 20px;
-      padding-right: 20px; } }
+      max-width: 80vw; } }
 
 .slate-form__wrapper {
   z-index: 2;
@@ -164,10 +163,8 @@ section {
     min-width: 580px; }
     @media only screen and (max-width: 581px) {
       section > div {
-        max-width: unset;
-        min-width: unset;
-        padding-left: 20px;
-        padding-right: 20px; } }
+        max-width: 80vw;
+        min-width: 80vw; } }
   section__stats {
     display: flex; }
   section .program-stat {
@@ -256,8 +253,8 @@ ul.why {
     min-width: unset;
     margin: unset; }
     .mobile-only .slate-form__wrapper .action button.default {
-      min-width: 200px;
+      min-width: 150px;
       padding: 20px;
-      font-size: 24px; }
+      font-size: 20px; }
 
 /*# sourceMappingURL=style.css.map */
