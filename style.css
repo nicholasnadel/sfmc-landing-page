@@ -84,7 +84,7 @@
     align-items: end; }
     @media only screen and (max-width: 1024px) {
       .cu-masthead__header--wrapper {
-        min-height: 200px; } }
+        min-height: 25vh; } }
 
 .cu-masthead__wrapper {
   height: 600px; }
@@ -96,8 +96,14 @@
   min-height: 80px; }
   @media only screen and (max-width: 1024px) {
     .cu-masthead__label {
-      min-height: 115px;
-      max-width: 80vw; } }
+      min-height: 17vh;
+      max-width: 80vw;
+      border: 5px dotted;
+      place-content: center;
+      place-items: center;
+      align-items: center;
+      justify-content: center;
+      display: flex; } }
 
 .slate-form__wrapper {
   z-index: 2;
