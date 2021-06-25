@@ -149,7 +149,8 @@
       font-family: var(--futura);
       min-width: 80px;
       font-size: 20px;
-      padding: 4px; }
+      padding: 4px;
+      cursor: pointer; }
   .slate-form__wrapper form {
     padding: 30px;
     padding-bottom: 20px; }
