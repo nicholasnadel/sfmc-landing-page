@@ -18,7 +18,9 @@ $(function () {
   $(window).on("resize", function () {
     // Mobile keyboard was triggering a "resize". Keyboard would automatically close...
     // If the current active element is a text input, we can assume the soft keyboard is visible.
-    if ($(".mobile-only *").focus()) {
+    if ($(document.activeElement).prop("type") === "text") {
+      return;
+    } else if ($(document.activeElement).prop("type") === "tel") {
       return;
     } else {
       moveSlateform();
