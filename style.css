@@ -84,7 +84,7 @@
     align-items: end; }
     @media only screen and (max-width: 1024px) {
       .cu-masthead__header--wrapper {
-        min-height: 25vh; } }
+        min-height: 300px; } }
 
 .cu-masthead__wrapper {
   height: 600px; }
@@ -96,7 +96,7 @@
   min-height: 80px; }
   @media only screen and (max-width: 1024px) {
     .cu-masthead__label {
-      min-height: 17vh;
+      min-height: 210px;
       max-width: 80vw;
       place-content: center;
       place-items: center;

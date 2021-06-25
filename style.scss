@@ -103,7 +103,7 @@
     display: grid;
     align-items: end;
     @media only screen and (max-width: 1024px) {
-      min-height: 25vh;
+      min-height: 300px;
     }
   }
 }
@@ -119,7 +119,7 @@
     font-size: 30px;
     min-height: 80px;
     @media only screen and (max-width: 1024px) {
-      min-height: 17vh;
+      min-height: 210px;
       max-width: 80vw;
       place-content: center;
       place-items: center;
