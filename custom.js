@@ -11,8 +11,17 @@ $(function () {
     }
   });
 
-  $(window).on("resize load", function (e) {
+  $(window).on("load", function (e) {
     moveSlateform();
+  });
+
+  $(window).on("resize", function () {
+    // If the current active element is a text input, we can assume the soft keyboard is visible.
+    if ($(document.activeElement).prop("type") === "text") {
+      return;
+    } else {
+      moveSlateform();
+    }
   });
 
   function moveSlateform() {
