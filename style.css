@@ -126,6 +126,16 @@
     font-family: var(--futura); }
   .slate-form__wrapper label.form_label {
     font-weight: bold; }
+  .slate-form__wrapper input,
+  .slate-form__wrapper select {
+    border: 2px solid lightgrey;
+    height: 50px;
+    width: 300px;
+    border-radius: 4px; }
+    @media only screen and (max-width: 1024px) {
+      .slate-form__wrapper input,
+      .slate-form__wrapper select {
+        width: 100%; } }
   .slate-form__wrapper .action {
     display: flex;
     justify-content: center; }
@@ -136,10 +146,11 @@
       border-radius: 4px;
       font-family: var(--futura);
       min-width: 80px;
-      font-size: 16px;
+      font-size: 20px;
       padding: 4px; }
   .slate-form__wrapper form {
-    padding: 30px; }
+    padding: 30px;
+    padding-bottom: 20px; }
 
 section {
   position: relative;
@@ -259,15 +270,19 @@ ul.why {
   @media only screen and (max-width: 1024px) {
     .mobile-only {
       display: block;
-      height: 100%; } }
+      height: auto; } }
   .mobile-only .slate-form__wrapper[data-sticky="true"] {
     position: relative;
     top: unset; }
+  .mobile-only .slate-form__wrapper > div:first-child {
+    position: relative;
+    height: 100%; }
   .mobile-only div {
     position: relative;
     width: 100%; }
   .mobile-only form {
-    width: auto; }
+    width: auto;
+    padding-bottom: 0; }
   .mobile-only .slate-form__wrapper {
     max-width: 100%;
     min-width: unset;
@@ -275,6 +290,7 @@ ul.why {
     .mobile-only .slate-form__wrapper .action button.default {
       min-width: 150px;
       padding: 20px;
-      font-size: 20px; }
+      font-size: 20px;
+      margin-top: 10px; }
 
 /*# sourceMappingURL=style.css.map */

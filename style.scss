@@ -162,9 +162,20 @@
     label.form_label {
       font-weight: bold;
     }
+    input,
+    select {
+      border: 2px solid lightgrey;
+      height: 50px;
+      width: 300px;
+      border-radius: 4px;
+      @media only screen and (max-width: 1024px) {
+        width: 100%;
+      }
+    }
     .action {
       display: flex;
       justify-content: center;
+
       button.default {
         background-color: var(--red);
         color: var(--white);
@@ -172,12 +183,13 @@
         border-radius: 4px;
         font-family: var(--futura);
         min-width: 80px;
-        font-size: 16px;
+        font-size: 20px;
         padding: 4px;
       }
     }
     form {
       padding: 30px;
+      padding-bottom: 20px;
     }
   }
 }
@@ -341,12 +353,16 @@ ul.why {
   display: none;
   @media only screen and (max-width: 1024px) {
     display: block;
-    height: 100%;
+    height: auto;
   }
 
   .slate-form__wrapper[data-sticky="true"] {
     position: relative;
     top: unset;
+  }
+  .slate-form__wrapper > div:first-child {
+    position: relative;
+    height: 100%;
   }
 
   div {
@@ -356,6 +372,7 @@ ul.why {
 
   form {
     width: auto;
+    padding-bottom: 0;
   }
 
   .slate-form__wrapper {
@@ -367,6 +384,7 @@ ul.why {
       min-width: 150px;
       padding: 20px;
       font-size: 20px;
+      margin-top: 10px;
     }
   }
 }
