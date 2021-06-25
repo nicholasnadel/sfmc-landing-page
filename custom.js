@@ -1,8 +1,8 @@
 $(function () {
   var elementPosition = $(".slate-form__wrapper").offset();
-  var isMobile = $(".mobile-only").is(":visible");
+
   $(window).scroll(function () {
-    if ($(window).scrollTop() > elementPosition.top && !isMobile) {
+    if ($(window).scrollTop() > elementPosition.top) {
       $(".slate-form__wrapper").attr("data-sticky", "true");
     } else {
       $(".slate-form__wrapper").attr("data-sticky", "false");
@@ -14,6 +14,7 @@ $(function () {
   });
 
   function moveSlateform() {
+    var isMobile = $(".mobile-only").is(":visible");
     if (isMobile) {
       $(".slate-form__wrapper").detach().appendTo(".mobile-only");
       $(".slate-form__wrapper").attr("data-sticky", "false");
