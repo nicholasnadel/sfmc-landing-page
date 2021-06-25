@@ -116,10 +116,12 @@
   position: absolute;
   margin-left: 115px;
   margin-top: -150px;
-  width: 400px; }
+  width: 400px;
+  transition: 500ms linear all; }
   .slate-form__wrapper[data-sticky="true"] {
     position: sticky;
-    top: 40px; }
+    top: 40px;
+    transform: scale(1.01); }
   .slate-form__wrapper > div:first-child {
     position: absolute;
     background-color: var(--white);
