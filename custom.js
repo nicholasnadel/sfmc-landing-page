@@ -1,5 +1,6 @@
 $(function () {
   var elementPosition = $(".slate-form__wrapper").offset();
+  var offSetThis = $(".bottom-cta").outerHeight();
 
   $(window).scroll(function () {
     if ($(window).scrollTop() > elementPosition.top) {
@@ -21,6 +22,7 @@ $(function () {
     } else {
       $(".slate-form__wrapper").detach().insertAfter(".cu-masthead__wrapper");
       $(".slate-form__wrapper").attr("data-sticky", "true");
+      $(".slate-form__wrapper").css("margin-bottom", offSetThis);
     }
   }
 });
