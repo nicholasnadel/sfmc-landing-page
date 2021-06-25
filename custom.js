@@ -11,7 +11,7 @@ $(function () {
     }
   });
 
-  $(window).on("load resize", function (e) {
+  $(window).on("resize load", function (e) {
     moveSlateform();
   });
 
@@ -23,7 +23,6 @@ $(function () {
       $(".slate-form__wrapper").css("margin-bottom", "unset");
     } else {
       $(".slate-form__wrapper").detach().insertAfter(".cu-masthead__wrapper");
-      $(".slate-form__wrapper").attr("data-sticky", "true");
       if ($(window).scrollTop() > topofDiv + offset) {
         $(".slate-form__wrapper").css("margin-bottom", offset);
       }
