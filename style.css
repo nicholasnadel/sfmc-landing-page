@@ -195,6 +195,9 @@ ul.why {
 .testimonial {
   display: grid;
   grid-template-columns: 20% 80%; }
+  @media only screen and (max-width: 1024px) {
+    .testimonial {
+      display: block; } }
   .testimonial__photo-wrapper {
     display: flex;
     place-content: center; }
@@ -205,6 +208,9 @@ ul.why {
     overflow: hidden;
     border-radius: 50%;
     object-fit: cover; }
+    @media only screen and (max-width: 1024px) {
+      .testimonial img {
+        margin-bottom: 20px; } }
   .testimonial__text {
     margin-left: 40px;
     grid-column: 2; }

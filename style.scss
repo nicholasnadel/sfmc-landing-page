@@ -260,6 +260,9 @@ ul.why {
   display: grid;
   grid-template-columns: 20% 80%;
 
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
   &__photo-wrapper {
     display: flex;
     place-content: center;
@@ -272,6 +275,10 @@ ul.why {
     overflow: hidden;
     border-radius: 50%;
     object-fit: cover;
+
+    @media only screen and (max-width: 1024px) {
+      margin-bottom: 20px;
+    }
   }
   &__text {
     margin-left: 40px;
