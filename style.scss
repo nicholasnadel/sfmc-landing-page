@@ -50,10 +50,10 @@
   }
   &__logo {
     img {
-      height: 3.75rem;
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
-      @media only screen and (max-width: 64rem) {
+      height: 60px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      @media only screen and (max-width: 1024px) {
         width: 100%;
         height: auto;
       }
@@ -63,7 +63,7 @@
 // END NAV
 // MASTHEAD
 .cu-mastead {
-  max-height: 31.25rem;
+  max-height: 500px;
   margin: 0;
   color: var(--white);
   font-family: var(--futura);
@@ -73,7 +73,7 @@
   background-position: center center;
   background-position: static;
   position: relative;
-  min-height: 34.375rem;
+  min-height: 550px;
   top: 0;
   margin-top: 0;
   padding-top: 0;
@@ -88,7 +88,7 @@
   display: grid;
   grid-template-columns: 40% 60%;
 
-  @media only screen and (max-width: 64rem) {
+  @media only screen and (max-width: 1024px) {
     grid-template-columns: unset;
   }
 
@@ -97,32 +97,32 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 9.375rem;
+    min-height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
     align-items: end;
-    @media only screen and (max-width: 64rem) {
-      min-height: 18.75rem;
+    @media only screen and (max-width: 1024px) {
+      min-height: 300px;
     }
   }
 }
 
 .cu-masthead {
   &__wrapper {
-    height: 37.5rem;
+    height: 600px;
   }
   &__label {
     grid-column: 2;
-    max-width: 34.375rem;
+    max-width: 550px;
     font-weight: bold;
-    font-size: 1.875rem;
-    min-height: 8.125rem;
+    font-size: 30px;
+    min-height: 130px;
     display: flex;
     align-items: center;
     justify-self: center;
-    @media only screen and (max-width: 64rem) {
-      min-height: 13.125rem;
+    @media only screen and (max-width: 1024px) {
+      min-height: 210px;
       max-width: 80vw;
       place-content: center;
       place-items: center;
@@ -141,11 +141,11 @@
     margin: 0;
     padding: 0;
     background-color: var(--white);
-    max-width: 31.25rem;
+    max-width: 500px;
     position: absolute;
     margin-left: 115px;
-    margin-top: -9.375rem;
-    width: 25rem;
+    margin-top: -150px;
+    width: 400px;
 
     // Set via JS
     &[data-sticky="true"] {
@@ -164,11 +164,11 @@
     }
     input,
     select {
-      border: 0.125rem solid lightgrey;
-      height: 3.125rem;
-      width: 18.75rem;
-      border-radius: 0.25rem;
-      @media only screen and (max-width: 64rem) {
+      border: 2px solid lightgrey;
+      height: 50px;
+      width: 100%;
+      border-radius: 4px;
+      @media only screen and (max-width: 1024px) {
         width: 100%;
       }
     }
@@ -180,16 +180,16 @@
         background-color: var(--red);
         color: var(--white);
         border: none;
-        border-radius: 0.25rem;
+        border-radius: 4px;
         font-family: var(--futura);
-        min-width: 5rem;
-        font-size: 1.25rem;
-        padding: 0.25rem;
+        min-width: 80px;
+        font-size: 20px;
+        padding: 4px;
       }
     }
     form {
-      padding: 1.875rem;
-      padding-bottom: 1.25rem;
+      padding: 30px;
+      padding-bottom: 20px;
     }
   }
 }
@@ -204,9 +204,9 @@ section {
   display: grid;
   grid-template-columns: 40% 60%;
   font-family: var(--futura);
-  font-size: 1.5rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  font-size: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   &.program-info {
     background-color: var(--sand);
@@ -214,7 +214,7 @@ section {
   &.why {
     background-color: var(--sand);
 
-    @media only screen and (max-width: 64rem) {
+    @media only screen and (max-width: 1024px) {
       background-color: var(--white);
     }
   }
@@ -222,7 +222,7 @@ section {
     background-color: var(--sand);
   }
 
-  @media only screen and (max-width: 64rem) {
+  @media only screen and (max-width: 1024px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,12 +230,12 @@ section {
 
   & > div {
     grid-column: 2;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    max-width: 36.25rem;
-    min-width: 36.25rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 580px;
+    min-width: 580px;
 
-    @media only screen and (max-width: 36.3125rem) {
+    @media only screen and (max-width: 581px) {
       max-width: 80vw;
       min-width: 80vw;
     }
@@ -244,30 +244,30 @@ section {
     display: flex;
   }
   .program-stat {
-    margin-right: 2.5rem;
+    margin-right: 40px;
 
     &__value {
-      margin-left: 3rem;
+      margin-left: 48px;
     }
   }
 
   .icon {
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
-    margin-right: 0.75rem;
-    font-size: 1.875rem;
+    margin-right: 12px;
+    font-size: 30px;
   }
 }
 ul.why {
   list-style: none;
   padding-left: 0;
-  margin-top: 1.25rem;
+  margin-top: 20px;
   .icon {
-    margin-right: 1.5rem;
+    margin-right: 24px;
     color: var(--red);
   }
   li {
-    padding: 0.75rem;
+    padding: 12px;
   }
 }
 
@@ -275,7 +275,7 @@ ul.why {
   display: grid;
   grid-template-columns: 20% 80%;
 
-  @media only screen and (max-width: 64rem) {
+  @media only screen and (max-width: 1024px) {
     display: block;
   }
   &__photo-wrapper {
@@ -285,30 +285,30 @@ ul.why {
 
   img {
     place-self: center;
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 120px;
+    height: 120px;
     overflow: hidden;
     border-radius: 50%;
     object-fit: cover;
 
-    @media only screen and (max-width: 64rem) {
-      margin-bottom: 1.25rem;
+    @media only screen and (max-width: 1024px) {
+      margin-bottom: 20px;
     }
   }
   &__text {
-    margin-left: 2.5rem;
-    @media only screen and (max-width: 64rem) {
+    margin-left: 40px;
+    @media only screen and (max-width: 1024px) {
       margin-left: 0;
     }
     grid-column: 2;
   }
   &__name {
-    margin-left: 2.5rem;
-    @media only screen and (max-width: 64rem) {
+    margin-left: 40px;
+    @media only screen and (max-width: 1024px) {
       margin-left: 0;
     }
     grid-column: 2;
-    margin-top: 1.25rem;
+    margin-top: 20px;
   }
 }
 // END PROGRAM INFO
@@ -317,9 +317,9 @@ ul.why {
 .bottom-cta {
   font-family: var(--futura);
   display: grid;
-  padding: 1.875rem;
+  padding: 30px;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 24px;
 
   &__text-wrapper {
     text-align: center;
@@ -329,22 +329,22 @@ ul.why {
     align-items: center;
     & > div,
     & > a {
-      margin-top: 1.875rem;
+      margin-top: 30px;
     }
   }
   &__description {
-    max-width: 46.875rem;
+    max-width: 750px;
   }
   &__cta {
     background-color: var(--red);
     max-width: max-content;
-    padding: 1.25rem;
-    border-radius: 0.25rem;
+    padding: 20px;
+    border-radius: 4px;
     font-weight: bold;
-    min-width: 15.625rem;
+    min-width: 250px;
     color: var(--white);
     text-decoration: none;
-    margin-bottom: 1.875rem;
+    margin-bottom: 30px;
   }
 }
 // END BOTTOM CTA
@@ -352,7 +352,7 @@ ul.why {
 // MOBILE ONLY
 .mobile-only {
   display: none;
-  @media only screen and (max-width: 64rem) {
+  @media only screen and (max-width: 1024px) {
     display: block;
     height: auto;
   }
@@ -382,11 +382,11 @@ ul.why {
     margin: unset;
 
     .action button.default {
-      min-width: 9.375rem;
-      padding: 1.25rem;
-      font-size: 1.5rem;
-      margin-top: 1.25rem;
-      margin-bottom: 1.25rem;
+      min-width: 150px;
+      padding: 20px;
+      font-size: 24px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
 }
