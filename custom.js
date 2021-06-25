@@ -19,6 +19,7 @@ $(function () {
     if (isMobile) {
       $(".slate-form__wrapper").detach().appendTo(".mobile-only");
       $(".slate-form__wrapper").attr("data-sticky", "false");
+      $(".slate-form__wrapper").css("margin-bottom", "unset");
     } else {
       $(".slate-form__wrapper").detach().insertAfter(".cu-masthead__wrapper");
       $(".slate-form__wrapper").attr("data-sticky", "true");
