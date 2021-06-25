@@ -285,7 +285,6 @@ ul.why {
     position: relative;
     width: 100%; }
   .mobile-only form {
-    width: auto;
     padding-bottom: 0; }
   .mobile-only .slate-form__wrapper {
     max-width: 100%;
