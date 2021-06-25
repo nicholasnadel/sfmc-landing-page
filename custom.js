@@ -1,6 +1,7 @@
 $(function () {
   var elementPosition = $(".slate-form__wrapper").offset();
-  var offSetThis = $(".bottom-cta").outerHeight();
+  var offset = $(".bottom-cta").outerHeight();
+  var topofDiv = $(".bottom-cta").offset().top;
 
   $(window).scroll(function () {
     if ($(window).scrollTop() > elementPosition.top) {
@@ -23,7 +24,9 @@ $(function () {
     } else {
       $(".slate-form__wrapper").detach().insertAfter(".cu-masthead__wrapper");
       $(".slate-form__wrapper").attr("data-sticky", "true");
-      $(".slate-form__wrapper").css("margin-bottom", offSetThis);
+      if ($(window).scrollTop() > topofDiv + offset) {
+        $(".slate-form__wrapper").css("margin-bottom", offset);
+      }
     }
   }
 });

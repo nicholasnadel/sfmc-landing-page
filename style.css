@@ -119,7 +119,7 @@
   width: 400px; }
   .slate-form__wrapper[data-sticky="true"] {
     position: sticky;
-    top: 0; }
+    top: 40px; }
   .slate-form__wrapper > div:first-child {
     position: absolute;
     background-color: var(--white);
