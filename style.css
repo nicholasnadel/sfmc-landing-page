@@ -98,7 +98,6 @@
     .cu-masthead__label {
       min-height: 17vh;
       max-width: 80vw;
-      border: 5px dotted;
       place-content: center;
       place-items: center;
       align-items: center;
