@@ -16,7 +16,6 @@ $(function () {
   function moveSlateform() {
     isMobile = $(".mobile-only").is(":visible");
     if (isMobile) {
-      console.log("mobile view");
       $(".slate-form__wrapper").detach().appendTo(".mobile-only");
       $(".slate-form__wrapper").attr("data-sticky", "false");
     } else {
