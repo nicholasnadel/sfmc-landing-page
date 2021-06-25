@@ -41,16 +41,16 @@
     justify-content: center;
     align-items: center; }
   .cu-nav__logo img {
-    height: 60px;
-    padding-top: 20px;
-    padding-bottom: 20px; }
-    @media only screen and (max-width: 1024px) {
+    height: 3.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem; }
+    @media only screen and (max-width: 64rem) {
       .cu-nav__logo img {
         width: 100%;
         height: auto; } }
 
 .cu-mastead {
-  max-height: 500px;
+  max-height: 31.25rem;
   margin: 0;
   color: var(--white);
   font-family: var(--futura);
@@ -60,7 +60,7 @@
   background-position: center center;
   background-position: static;
   position: relative;
-  min-height: 550px;
+  min-height: 34.375rem;
   top: 0;
   margin-top: 0;
   padding-top: 0;
@@ -69,7 +69,7 @@
 .cu-masthead__header {
   display: grid;
   grid-template-columns: 40% 60%; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 64rem) {
     .cu-masthead__header {
       grid-template-columns: unset; } }
   .cu-masthead__header--wrapper {
@@ -77,29 +77,29 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 150px;
+    min-height: 9.375rem;
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
     align-items: end; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 64rem) {
       .cu-masthead__header--wrapper {
-        min-height: 300px; } }
+        min-height: 18.75rem; } }
 
 .cu-masthead__wrapper {
-  height: 600px; }
+  height: 37.5rem; }
 .cu-masthead__label {
   grid-column: 2;
-  max-width: 550px;
+  max-width: 34.375rem;
   font-weight: bold;
-  font-size: 30px;
-  min-height: 130px;
+  font-size: 1.875rem;
+  min-height: 8.125rem;
   display: flex;
   align-items: center;
   justify-self: center; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 64rem) {
     .cu-masthead__label {
-      min-height: 210px;
+      min-height: 13.125rem;
       max-width: 80vw;
       place-content: center;
       place-items: center;
@@ -112,11 +112,11 @@
   margin: 0;
   padding: 0;
   background-color: var(--white);
-  max-width: 500px;
+  max-width: 31.25rem;
   position: absolute;
   margin-left: 10%;
-  margin-top: -150px;
-  width: 400px; }
+  margin-top: -9.375rem;
+  width: 25rem; }
   .slate-form__wrapper[data-sticky="true"] {
     position: sticky;
     top: 0; }
@@ -128,11 +128,11 @@
     font-weight: bold; }
   .slate-form__wrapper input,
   .slate-form__wrapper select {
-    border: 2px solid lightgrey;
-    height: 50px;
-    width: 300px;
-    border-radius: 4px; }
-    @media only screen and (max-width: 1024px) {
+    border: 0.125rem solid lightgrey;
+    height: 3.125rem;
+    width: 18.75rem;
+    border-radius: 0.25rem; }
+    @media only screen and (max-width: 64rem) {
       .slate-form__wrapper input,
       .slate-form__wrapper select {
         width: 100%; } }
@@ -143,73 +143,73 @@
       background-color: var(--red);
       color: var(--white);
       border: none;
-      border-radius: 4px;
+      border-radius: 0.25rem;
       font-family: var(--futura);
-      min-width: 80px;
-      font-size: 20px;
-      padding: 4px; }
+      min-width: 5rem;
+      font-size: 1.25rem;
+      padding: 0.25rem; }
   .slate-form__wrapper form {
-    padding: 30px;
-    padding-bottom: 20px; }
+    padding: 1.875rem;
+    padding-bottom: 1.25rem; }
 
 section {
   position: relative;
   display: grid;
   grid-template-columns: 40% 60%;
   font-family: var(--futura);
-  font-size: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  font-size: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem; }
   section.program-info {
     background-color: var(--sand); }
   section.why {
     background-color: var(--sand); }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 64rem) {
       section.why {
         background-color: var(--white); } }
   section.testimonial__wrapper {
     background-color: var(--sand); }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 64rem) {
     section {
       display: flex;
       flex-direction: column;
       align-items: center; } }
   section > div {
     grid-column: 2;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    max-width: 580px;
-    min-width: 580px; }
-    @media only screen and (max-width: 581px) {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    max-width: 36.25rem;
+    min-width: 36.25rem; }
+    @media only screen and (max-width: 36.3125rem) {
       section > div {
         max-width: 80vw;
         min-width: 80vw; } }
   section__stats {
     display: flex; }
   section .program-stat {
-    margin-right: 40px; }
+    margin-right: 2.5rem; }
     section .program-stat__value {
-      margin-left: 48px; }
+      margin-left: 3rem; }
   section .icon {
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
-    margin-right: 12px;
-    font-size: 30px; }
+    margin-right: 0.75rem;
+    font-size: 1.875rem; }
 
 ul.why {
   list-style: none;
   padding-left: 0;
-  margin-top: 20px; }
+  margin-top: 1.25rem; }
   ul.why .icon {
-    margin-right: 24px;
+    margin-right: 1.5rem;
     color: var(--red); }
   ul.why li {
-    padding: 12px; }
+    padding: 0.75rem; }
 
 .testimonial {
   display: grid;
   grid-template-columns: 20% 80%; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 64rem) {
     .testimonial {
       display: block; } }
   .testimonial__photo-wrapper {
@@ -217,34 +217,34 @@ ul.why {
     place-content: center; }
   .testimonial img {
     place-self: center;
-    width: 120px;
-    height: 120px;
+    width: 7.5rem;
+    height: 7.5rem;
     overflow: hidden;
     border-radius: 50%;
     object-fit: cover; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 64rem) {
       .testimonial img {
-        margin-bottom: 20px; } }
+        margin-bottom: 1.25rem; } }
   .testimonial__text {
-    margin-left: 40px;
+    margin-left: 2.5rem;
     grid-column: 2; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 64rem) {
       .testimonial__text {
         margin-left: 0; } }
   .testimonial__name {
-    margin-left: 40px;
+    margin-left: 2.5rem;
     grid-column: 2;
-    margin-top: 20px; }
-    @media only screen and (max-width: 1024px) {
+    margin-top: 1.25rem; }
+    @media only screen and (max-width: 64rem) {
       .testimonial__name {
         margin-left: 0; } }
 
 .bottom-cta {
   font-family: var(--futura);
   display: grid;
-  padding: 30px;
+  padding: 1.875rem;
   justify-content: center;
-  font-size: 24px; }
+  font-size: 1.5rem; }
   .bottom-cta__text-wrapper {
     text-align: center;
     justify-content: center;
@@ -252,22 +252,23 @@ ul.why {
     flex-direction: column;
     align-items: center; }
     .bottom-cta__text-wrapper > div, .bottom-cta__text-wrapper > a {
-      margin-top: 30px; }
+      margin-top: 1.875rem; }
   .bottom-cta__description {
-    max-width: 750px; }
+    max-width: 46.875rem; }
   .bottom-cta__cta {
     background-color: var(--red);
     max-width: max-content;
-    padding: 20px;
-    border-radius: 4px;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
     font-weight: bold;
-    min-width: 250px;
+    min-width: 15.625rem;
     color: var(--white);
-    text-decoration: none; }
+    text-decoration: none;
+    margin-bottom: 1.875rem; }
 
 .mobile-only {
   display: none; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 64rem) {
     .mobile-only {
       display: block;
       height: auto; } }
@@ -288,10 +289,10 @@ ul.why {
     min-width: unset;
     margin: unset; }
     .mobile-only .slate-form__wrapper .action button.default {
-      min-width: 150px;
-      padding: 20px;
-      font-size: 24px;
-      margin-top: 20px;
-      margin-bottom: 20px; }
+      min-width: 9.375rem;
+      padding: 1.25rem;
+      font-size: 1.5rem;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem; }
 
 /*# sourceMappingURL=style.css.map */
