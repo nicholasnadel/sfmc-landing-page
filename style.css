@@ -93,7 +93,10 @@
   max-width: 550px;
   font-weight: bold;
   font-size: 30px;
-  min-height: 80px; }
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  justify-self: center; }
   @media only screen and (max-width: 1024px) {
     .cu-masthead__label {
       min-height: 210px;
