@@ -282,10 +282,16 @@ ul.why {
   }
   &__text {
     margin-left: 40px;
+    @media only screen and (max-width: 1024px) {
+      margin-left: 0;
+    }
     grid-column: 2;
   }
   &__name {
     margin-left: 40px;
+    @media only screen and (max-width: 1024px) {
+      margin-left: 0;
+    }
     grid-column: 2;
     margin-top: 20px;
   }

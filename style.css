@@ -214,10 +214,16 @@ ul.why {
   .testimonial__text {
     margin-left: 40px;
     grid-column: 2; }
+    @media only screen and (max-width: 1024px) {
+      .testimonial__text {
+        margin-left: 0; } }
   .testimonial__name {
     margin-left: 40px;
     grid-column: 2;
     margin-top: 20px; }
+    @media only screen and (max-width: 1024px) {
+      .testimonial__name {
+        margin-left: 0; } }
 
 .bottom-cta {
   font-family: var(--futura);
