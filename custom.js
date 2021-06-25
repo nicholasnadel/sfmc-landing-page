@@ -18,13 +18,10 @@ $(function () {
     if (isMobile) {
       console.log("mobile view");
       $(".slate-form__wrapper").detach().appendTo(".mobile-only");
+      $(".slate-form__wrapper").attr("data-sticky", "false");
     } else {
       $(".slate-form__wrapper").detach().insertAfter(".cu-masthead__wrapper");
+      $(".slate-form__wrapper").attr("data-sticky", "true");
     }
-    // if ($(window).innerWidth() <= 1024) {
-    //   $(".slate-form__wrapper").detach().appendTo(".testimonial__wrapper");
-    // } else {
-    //   $(".slate-form__wrapper").detach().appendTo(".cu-masthead__wrapper");
-    // }
   }
 });

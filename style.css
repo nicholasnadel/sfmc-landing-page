@@ -58,7 +58,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  background-position: fixed;
+  background-position: static;
   position: relative;
   min-height: 550px;
   top: 0;
@@ -96,6 +96,7 @@
   min-height: 80px; }
   @media only screen and (max-width: 1024px) {
     .cu-masthead__label {
+      min-height: 115px;
       padding-left: 20px;
       padding-right: 20px; } }
 
@@ -159,8 +160,9 @@ section {
     grid-column: 2;
     margin-top: 20px;
     margin-bottom: 20px;
-    max-width: 580px; }
-    @media only screen and (max-width: 580px) {
+    max-width: 580px;
+    min-width: 580px; }
+    @media only screen and (max-width: 581px) {
       section > div {
         max-width: unset;
         min-width: unset;
@@ -241,6 +243,9 @@ ul.why {
     .mobile-only {
       display: block;
       height: 100%; } }
+  .mobile-only .slate-form__wrapper[data-sticky="true"] {
+    position: relative;
+    top: unset; }
   .mobile-only div {
     position: relative;
     width: 100%; }

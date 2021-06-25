@@ -71,7 +71,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  background-position: fixed;
+  background-position: static;
   position: relative;
   min-height: 550px;
   top: 0;
@@ -119,6 +119,7 @@
     font-size: 30px;
     min-height: 80px;
     @media only screen and (max-width: 1024px) {
+      min-height: 115px;
       padding-left: 20px;
       padding-right: 20px;
     }
@@ -213,9 +214,9 @@ section {
     margin-top: 20px;
     margin-bottom: 20px;
     max-width: 580px;
-    // min-width: 580px;
+    min-width: 580px;
 
-    @media only screen and (max-width: 580px) {
+    @media only screen and (max-width: 581px) {
       max-width: unset;
       min-width: unset;
       padding-left: 20px;
@@ -323,6 +324,11 @@ ul.why {
   @media only screen and (max-width: 1024px) {
     display: block;
     height: 100%;
+  }
+
+  .slate-form__wrapper[data-sticky="true"] {
+    position: relative;
+    top: unset;
   }
 
   div {
