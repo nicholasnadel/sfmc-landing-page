@@ -9,6 +9,7 @@ $(function () {
       $(".slate-form__wrapper").attr("data-sticky", "false");
     }
   });
+  // Slate embed loads the form - doesn't exist initially.
   var checkExist = setInterval(function () {
     if ($(".slate-form__wrapper form").length) {
       $(".slate-form__wrapper")
