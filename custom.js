@@ -9,39 +9,6 @@ $(function () {
       $(".slate-form__wrapper").attr("data-sticky", "false");
     }
   });
-  $(window).on("load", function (e) {
-    // moveSlateform();
-  });
-  $(window).on("resize", function () {
-    // Mobile keyboard was triggering a "resize". Keyboard would automatically close...
-    // If the current active element is a text input, we can assume the soft keyboard is visible.
-    if ($(document.activeElement).prop("type") === "text") {
-      return;
-    } else if ($(document.activeElement).prop("type") === "tel") {
-      return;
-    } else if ($(document.activeElement).prop("type") === "email") {
-      return;
-    } else if ($(document.activeElement).prop("type") === "select") {
-      return;
-    } else {
-      // moveSlateform();
-    }
-  });
-  // duplicate Slate embeds do not render html, hence the detach().appendTo()...
-  function moveSlateform() {
-    var isMobile = $(".mobile-only").is(":visible");
-    if (isMobile) {
-      $(".slate-form__wrapper").detach().appendTo(".mobile-only");
-      $(".slate-form__wrapper").attr("data-sticky", "false");
-      $(".slate-form__wrapper").css("margin-bottom", "unset");
-    } else {
-      $(".slate-form__wrapper").detach().insertAfter(".cu-masthead__wrapper");
-      if ($(window).scrollTop() > topofDiv + offset) {
-        $(".slate-form__wrapper").css("margin-bottom", offset);
-      }
-    }
-  }
-
   var checkExist = setInterval(function () {
     if ($(".slate-form__wrapper form").length) {
       $(".slate-form__wrapper")
