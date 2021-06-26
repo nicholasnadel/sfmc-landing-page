@@ -2,7 +2,6 @@ $(function () {
   var elementPosition = $(".slate-form__wrapper").offset();
   var offset = $(".bottom-cta").outerHeight();
   var topofDiv = $(".bottom-cta").offset().top;
-
   $(window).scroll(function () {
     if ($(window).scrollTop() > elementPosition.top) {
       $(".slate-form__wrapper").attr("data-sticky", "true");
@@ -10,15 +9,12 @@ $(function () {
       $(".slate-form__wrapper").attr("data-sticky", "false");
     }
   });
-
   $(window).on("load", function (e) {
-    moveSlateform();
+    // moveSlateform();
   });
-
   $(window).on("resize", function () {
     // Mobile keyboard was triggering a "resize". Keyboard would automatically close...
     // If the current active element is a text input, we can assume the soft keyboard is visible.
-    // alert($(document.activeElement).prop("type"));
     if ($(document.activeElement).prop("type") === "text") {
       return;
     } else if ($(document.activeElement).prop("type") === "tel") {
@@ -28,10 +24,9 @@ $(function () {
     } else if ($(document.activeElement).prop("type") === "select") {
       return;
     } else {
-      moveSlateform();
+      // moveSlateform();
     }
   });
-
   // duplicate Slate embeds do not render html, hence the detach().appendTo()...
   function moveSlateform() {
     var isMobile = $(".mobile-only").is(":visible");
@@ -46,4 +41,15 @@ $(function () {
       }
     }
   }
+
+  var checkExist = setInterval(function () {
+    if ($(".slate-form__wrapper form").length) {
+      $(".slate-form__wrapper")
+        .clone()
+        .removeClass("desktop-only")
+        .addClass("mobile-only")
+        .appendTo(".mobile-only");
+      clearInterval(checkExist);
+    }
+  }, 100); // check every 100ms
 });

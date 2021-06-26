@@ -352,6 +352,15 @@ ul.why {
 }
 // END BOTTOM CTA
 
+// DESKTOP ONLY
+.desktop-only {
+  display: block;
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+// END DESKTOP ONLY
+
 // MOBILE ONLY
 .mobile-only {
   display: none;
@@ -364,6 +373,7 @@ ul.why {
     position: relative;
     top: unset;
   }
+
   .slate-form__wrapper > div:first-child {
     position: relative;
     height: 100%;
