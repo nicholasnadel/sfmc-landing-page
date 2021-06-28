@@ -44,7 +44,7 @@
     height: 60px;
     padding-top: 20px;
     padding-bottom: 20px; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       .cu-nav__logo img {
         width: 100%;
         height: auto; } }
@@ -69,7 +69,7 @@
 .cu-masthead__header {
   display: grid;
   grid-template-columns: 40% 60%; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1300px) {
     .cu-masthead__header {
       grid-template-columns: unset; } }
   .cu-masthead__header--wrapper {
@@ -82,7 +82,7 @@
     background-size: cover;
     display: grid;
     align-items: end; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       .cu-masthead__header--wrapper {
         min-height: 300px; } }
 
@@ -97,7 +97,7 @@
   display: flex;
   align-items: center;
   justify-self: center; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1300px) {
     .cu-masthead__label {
       min-height: 210px;
       max-width: 80vw;
@@ -118,9 +118,9 @@
   margin-top: -150px;
   width: 400px;
   transition: 500ms linear all; }
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 1400px) {
     .slate-form__wrapper {
-      margin-left: 30px; } }
+      margin-left: 40px; } }
   .slate-form__wrapper[data-sticky="true"] {
     position: sticky;
     top: 40px;
@@ -137,7 +137,7 @@
     height: 50px;
     width: 100%;
     border-radius: 4px; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       .slate-form__wrapper input,
       .slate-form__wrapper select {
         width: 100%; } }
@@ -170,12 +170,12 @@ section {
     background-color: var(--sand); }
   section.why {
     background-color: var(--sand); }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       section.why {
         background-color: var(--white); } }
   section.testimonial__wrapper {
     background-color: var(--sand); }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1300px) {
     section {
       display: flex;
       flex-direction: column;
@@ -215,7 +215,7 @@ ul.why {
 .testimonial {
   display: grid;
   grid-template-columns: 20% 80%; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1300px) {
     .testimonial {
       display: block; } }
   .testimonial__photo-wrapper {
@@ -228,20 +228,20 @@ ul.why {
     overflow: hidden;
     border-radius: 50%;
     object-fit: cover; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       .testimonial img {
         margin-bottom: 20px; } }
   .testimonial__text {
     margin-left: 40px;
     grid-column: 2; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       .testimonial__text {
         margin-left: 0; } }
   .testimonial__name {
     margin-left: 40px;
     grid-column: 2;
     margin-top: 20px; }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1300px) {
       .testimonial__name {
         margin-left: 0; } }
 
@@ -274,13 +274,13 @@ ul.why {
 
 .desktop-only {
   display: block; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1300px) {
     .desktop-only {
       display: none; } }
 
 .mobile-only {
   display: none; }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1300px) {
     .mobile-only {
       display: block;
       height: auto; } }
