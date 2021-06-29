@@ -449,7 +449,9 @@ div.form_p .form_label {
 @media only screen and (-ms-high-contrast: active) and (max-width: 1300px), only screen and (-ms-high-contrast: none) and (max-width: 1300px) {
   .cu-masthead__label {
     min-height: 300px;
-    height: 300px; }
+    height: 300px;
+    width: 100%;
+    max-width: 100%; }
 
   section {
     display: block; }
