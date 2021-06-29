@@ -10,7 +10,7 @@ $(function () {
     ieCSSVarPolyfill();
   });
 
-  $(window).on("resize", function (e) {});
+  $(window).on("load resize", function (e) {});
   // Slate embed loads the form - doesn't exist initially.
   var checkExist = setInterval(function () {
     // we only want the form to be cloned & appended to for mobile once
