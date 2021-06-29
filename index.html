@@ -14,6 +14,9 @@
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/69750d1513.js"></script>
   <!-- jQuery JS 3.1.0 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- https://github.com/nuxodin/ie11CustomProperties -->
+
+
   <script src="./custom.js"></script>
 </head>
 <nav class="cu-nav">
@@ -54,7 +57,7 @@
   <!-- SLATE FORM -->
   <div class="slate-form__wrapper desktop-only" data-sticky="false">
     <div id="form_ba58dc38-6ff9-465e-bceb-8eb218fc9c53">
-      <script>/*<![CDATA[*/if (window['formEmbedHandler'] == null) { window.addEventListener('message', function (event) { if (event.data != null && event.data.xdm == true && event.data.query != null && event.data.query['embed'] != null && event.data.html != null) { try { var embedElement = FW.$("#" + event.data.query['embed']); FW.$(window).scrollTop(embedElement.offset().top); embedElement.html(event.data.html); } catch (ex) { } FW.Progress.Unload(); } }, false); window['formEmbedHandler'] = true; }/*]]>*/</script>
+
       <form enctype="multipart/form-data" id="form_ba58dc38-6ff9-465e-bceb-8eb218fc9c53_container" method="post"
         onsubmit="return (false);"
         action="https://go.chapman.edu/register/form?id=ba58dc38-6ff9-465e-bceb-8eb218fc9c53&amp;embed=form_ba58dc38-6ff9-465e-bceb-8eb218fc9c53&amp;v=637605129393670000&amp;cmd=submit&amp;output=xdm"
@@ -64,13 +67,7 @@
           value="https://cloud.email.chapman.edu/ug-landing">
         <div id="form_start"></div>
         <div>
-          <script>/*<![CDATA[*/new function ($) {
-              var renderForm = function () {
-                var form = window['Form'] = window['form_ba58dc38-6ff9-465e-bceb-8eb218fc9c53'] = new FormFiller($('#form_page_ba58dc38-6ff9-465e-bceb-8eb218fc9c53')); var keys_87a08831_9d60_423b_a1ba_4d5e1279d8c3 = {}; keys_87a08831_9d60_423b_a1ba_4d5e1279d8c3['form_87a08831-9d60-423b-a1ba-4d5e1279d8c3'] = 'name'; keys_87a08831_9d60_423b_a1ba_4d5e1279d8c3['form_ceb3b8a7-f780-4f35-aaf5-c39585744faa'] = 'key'; new Suggest({ input: $('#form_87a08831-9d60-423b-a1ba-4d5e1279d8c3'), service: 'https://go.chapman.edu/manage/service/lookup?type=school&q=', callback: function (result) { var keys = keys_87a08831_9d60_423b_a1ba_4d5e1279d8c3; for (var key in keys) { if (keys[key] == 'country') if (result[keys[key]] == null) continue; if ($('#' + key).length > 0) $('#' + key).val(result[keys[key]]).triggerHandler('change'); } }, clear: function () { var keys = keys_87a08831_9d60_423b_a1ba_4d5e1279d8c3; for (var key in keys) { if ($('#' + key).length > 0 && !$('#' + key).is(this.input)) $('#' + key).val('').triggerHandler('change'); } } }); try {
 
-                } catch (ex) { if (console.log) console.log(ex); } form.ready();
-              }; $(renderForm);
-            }(FW.$);/*]]>*/</script>
           <div class="form_container">
             <div id="form_page_ba58dc38-6ff9-465e-bceb-8eb218fc9c53" class="form_width_narrow">
               <div class="form_pages">
@@ -595,4 +592,5 @@
 
 
   <div class="progress_box" style="visibility: hidden;"></div>
+  <!-- <script>window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\/script>');</script> -->
 </body>
