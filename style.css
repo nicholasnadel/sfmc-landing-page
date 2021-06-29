@@ -408,7 +408,8 @@ div.form_p .form_label {
     /*Center horizontaly ie */
     -ms-flex-pack: center;
     min-height: 150px;
-    height: 150px; }
+    height: 150px;
+    padding-right: 230px; }
 
   .slate_form_wrapper {
     background-color: white;
@@ -430,6 +431,8 @@ div.form_p .form_label {
     justify-content: right;
     text-align: left;
     flex-direction: column; }
+    section > div {
+      padding-right: 100px; }
 
   .testimonial {
     display: block;
@@ -451,7 +454,8 @@ div.form_p .form_label {
     min-height: 300px;
     height: 300px;
     width: 100%;
-    max-width: 100%; }
+    max-width: 100%;
+    padding-right: 0; }
 
   section {
     display: block; }

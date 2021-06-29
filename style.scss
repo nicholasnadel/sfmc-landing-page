@@ -472,6 +472,7 @@ div.form_p {
     -ms-flex-pack: center;
     min-height: 150px;
     height: 150px;
+    padding-right: 230px;
   }
   .slate_form_wrapper {
     background-color: white;
@@ -482,7 +483,6 @@ div.form_p {
   [data-sticky="true"] {
     position: fixed;
     margin-top: 10px;
-    // top: 200px !important;
   }
   section {
     display: -webkit-box;
@@ -494,7 +494,10 @@ div.form_p {
     justify-content: right;
     text-align: left;
     flex-direction: column;
-    // background-color: #f6f2ea;
+
+    & > div {
+      padding-right: 100px;
+    }
   }
   .testimonial {
     display: block;
@@ -518,6 +521,7 @@ div.form_p {
       height: 300px;
       width: 100%;
       max-width: 100%;
+      padding-right: 0;
     }
 
     section {
