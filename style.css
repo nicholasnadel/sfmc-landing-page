@@ -477,5 +477,7 @@ div.form_p .form_label {
 
   .testimonial__name {
     padding-left: 80px; } }
+iframe {
+  max-width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
