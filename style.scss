@@ -495,10 +495,6 @@ div.form_p {
     text-align: left;
     flex-direction: column;
     // background-color: #f6f2ea;
-    & > div {
-      // max-width: 100%;
-      // min-width: 100%;
-    }
   }
   .testimonial {
     display: block;
@@ -515,6 +511,32 @@ div.form_p {
   }
   .bottom-cta {
     display: block;
-    background-color: #231f20;
+  }
+  @media only screen and (max-width: 1300px) {
+    section {
+      display: block;
+      & > div {
+        max-width: 80vw;
+        min-width: auto;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+    }
+    .mobile-only {
+      .slate-form__wrapper {
+        margin-left: 0;
+      }
+      [data-sticky="true"] {
+        position: relative;
+        top: 0;
+      }
+    }
+    .testimonial__text {
+      max-width: 500px;
+      padding-left: 80px;
+    }
+    .testimonial__name {
+      padding-left: 80px;
+    }
   }
 }
