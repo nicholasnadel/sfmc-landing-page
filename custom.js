@@ -23,6 +23,12 @@ $(function () {
         .removeClass("desktop-only")
         .addClass("mobile-only")
         .appendTo(".mobile-only");
+
+      $(".mobile-only")
+        .closest("table")
+        .detach()
+        .appendTo(".cu-masthead__wrapper")
+        .attr("data-hint", "moved via js");
       clearInterval(checkExist);
     }
   }, 100); // check every 100ms

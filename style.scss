@@ -117,6 +117,9 @@
   }
   label.form_label {
     font-weight: bold;
+    @media only screen and (max-width: 1300px) {
+      min-width: 12vw;
+    }
   }
   input {
     border: 2px solid lightgrey;
@@ -156,9 +159,10 @@
   }
 }
 .slate-form__wrapper[data-sticky="true"] {
-  position: sticky;
-  top: 40px;
+  position: fixed;
+  top: 0;
   transform: scale(1.01);
+  margin-top: 40px;
 }
 section {
   position: relative;
@@ -431,6 +435,7 @@ div.form_p {
 @media only screen and (max-width: 600px) {
   .cu-masthead__label {
     justify-self: left;
+    max-width: 80vw;
   }
 }
 @media only screen and (max-width: 1400px) {
