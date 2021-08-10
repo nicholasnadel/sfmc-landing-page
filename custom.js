@@ -1,4 +1,25 @@
 $(function () {
+  function refreshCSS() {
+    let links = document.getElementsByTagName("link");
+    for (let i = 0; i < links.length; i++) {
+      if (links[i].getAttribute("rel") == "stylesheet") {
+        let href = links[i].getAttribute("href").split("?")[0];
+
+        let newHref = href + "?version=" + new Date().getMilliseconds();
+
+        links[i].setAttribute("href", newHref);
+      }
+    }
+  }
+
+  function refreshJS() {
+    var scripts = document.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      var href = scripts[i].src.split("?")[0];
+      var source = href + "?version=" + new Date().getMilliseconds();
+      scripts[i].setAttribute("src", source);
+    }
+  }
   var elementPosition = $(".slate-form__wrapper").offset();
   $(window).scroll(function () {
     if ($(window).scrollTop() > elementPosition.top) {
@@ -30,6 +51,8 @@ $(function () {
         .appendTo(".cu-masthead__wrapper")
         .attr("data-hint", "moved via js");
       clearInterval(checkExist);
+
+      $("input, select").css("color", "black !important");
     }
   }, 100); // check every 100ms
 });

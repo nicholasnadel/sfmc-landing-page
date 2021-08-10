@@ -133,7 +133,8 @@
     height: 50px;
     width: 100%;
     border-radius: 4px;
-    color: white;
+    color: black;
+    background-image: none !important;
   }
   .action {
     display: flex;
@@ -365,7 +366,7 @@ select {
   }
 }
 select#form_1904b06e-7de4-4224-95a2-bded1972ddb7 {
-  color: white;
+  color: black;
 }
 div.form_p {
   .form_label {
@@ -559,4 +560,10 @@ div.form_p {
 
 iframe {
   max-width: 100%;
+}
+
+input,
+.slate-form__wrapper,
+.mobile-only {
+  color: black !important;
 }
