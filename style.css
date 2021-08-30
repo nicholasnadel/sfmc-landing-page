@@ -79,7 +79,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
-  align-items: end; }
+  align-items: end;
+  padding-top: 40px;
+  padding-bottom: 10px; }
 
 .cu-masthead__wrapper {
   height: 100%; }
