@@ -154,6 +154,16 @@
   transform: scale(1.01);
   margin-top: 40px; }
 
+.slate-form__wrapper[data-sticky="stuck"] {
+  transition: none;
+  position: fixed;
+  top: 0;
+  margin-top: -200px; }
+
+.slate-form__wrapper[data-sticky="none"] {
+  transition: none;
+  position: fixed; }
+
 section {
   position: relative;
   display: grid;

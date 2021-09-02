@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 45,
             "patches": [
                 {
                     "date": 1629847591227,
@@ -36,6 +36,158 @@
                 {
                     "date": 1630347718197,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -97,8 +97,10 @@\n   background-repeat: no-repeat;\n   background-size: cover;\n   display: grid;\n   align-items: end;\n+  padding-top: 10px;\n+  padding-bottom: 10px;\n }\n \n .cu-masthead__wrapper {\n   height: 100%;\n"
+                },
+                {
+                    "date": 1630620102588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -195,8 +195,15 @@\n   transform: scale(1.01);\n   margin-top: 40px;\n }\n \n+.slate-form__wrapper[data-sticky=\"false\"] {\n+  position: fixed;\n+  top: 0;\n+  transform: scale(1.01);\n+  margin-top: 0;\n+}\n+\n section {\n   position: relative;\n   display: grid;\n   grid-template-columns: 49.5% 60%;\n"
+                },
+                {
+                    "date": 1630620110666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -199,9 +199,9 @@\n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   top: 0;\n   transform: scale(1.01);\n-  margin-top: 0;\n+  margin-top: -300;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630620124536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -199,9 +199,9 @@\n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   top: 0;\n   transform: scale(1.01);\n-  margin-top: -300;\n+  margin-top: -100px;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630620141477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -199,9 +199,9 @@\n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   top: 0;\n   transform: scale(1.01);\n-  margin-top: -100px;\n+  top: -140px;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630620152750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -199,9 +199,9 @@\n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   top: 0;\n   transform: scale(1.01);\n-  top: -140px;\n+  top: -40px;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630620163100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -197,9 +197,8 @@\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n-  top: 0;\n   transform: scale(1.01);\n   top: -40px;\n }\n \n"
+                },
+                {
+                    "date": 1630620491678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n-  position: fixed;\n+  // position: fixed;\n   transform: scale(1.01);\n   top: -40px;\n }\n \n"
+                },
+                {
+                    "date": 1630620498244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n-  // position: fixed;\n+  position: relative;\n   transform: scale(1.01);\n   top: -40px;\n }\n \n"
+                },
+                {
+                    "date": 1630620678740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n-  position: relative;\n+  position: absolute;\n   transform: scale(1.01);\n   top: -40px;\n }\n \n"
+                },
+                {
+                    "date": 1630620690036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,10 @@\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: absolute;\n   transform: scale(1.01);\n-  top: -40px;\n+  top: 0;\n+  margin-top: 0;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630620710275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n-  position: absolute;\n+  position: fixed;\n   transform: scale(1.01);\n   top: 0;\n   margin-top: 0;\n }\n"
+                },
+                {
+                    "date": 1630620716632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,9 +198,9 @@\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   transform: scale(1.01);\n-  top: 0;\n+  top: -100;\n   margin-top: 0;\n }\n \n section {\n"
+                },
+                {
+                    "date": 1630620725606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,10 +198,10 @@\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   transform: scale(1.01);\n-  top: -100;\n-  margin-top: 0;\n+  top: 0;\n+  margin-top: -100px;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630620730945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -199,9 +199,9 @@\n .slate-form__wrapper[data-sticky=\"false\"] {\n   position: fixed;\n   transform: scale(1.01);\n   top: 0;\n-  margin-top: -100px;\n+  margin-top: -200px;\n }\n \n section {\n   position: relative;\n"
+                },
+                {
+                    "date": 1630621121657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,14 +196,22 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n+  position: relative;\n+  transform: scale(1.01);\n+  top: 0;\n+  margin-top: -200px;\n+}\n+\n+.slate-form__wrapper[data-sticky=\"stuck\"] {\n   position: fixed;\n   transform: scale(1.01);\n   top: 0;\n   margin-top: -200px;\n }\n \n+\n section {\n   position: relative;\n   display: grid;\n   grid-template-columns: 49.5% 60%;\n"
+                },
+                {
+                    "date": 1630621217255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n-  position: relative;\n+  position: absolute;\n   transform: scale(1.01);\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630621240225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"false\"] {\n-  position: absolute;\n+  position: relative;\n   transform: scale(1.01);\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630621296069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -195,23 +195,10 @@\n   transform: scale(1.01);\n   margin-top: 40px;\n }\n \n-.slate-form__wrapper[data-sticky=\"false\"] {\n-  position: relative;\n-  transform: scale(1.01);\n-  top: 0;\n-  margin-top: -200px;\n-}\n \n-.slate-form__wrapper[data-sticky=\"stuck\"] {\n-  position: fixed;\n-  transform: scale(1.01);\n-  top: 0;\n-  margin-top: -200px;\n-}\n \n-\n section {\n   position: relative;\n   display: grid;\n   grid-template-columns: 49.5% 60%;\n"
+                },
+                {
+                    "date": 1630621315644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -195,10 +195,22 @@\n   transform: scale(1.01);\n   margin-top: 40px;\n }\n \n+.slate-form__wrapper[data-sticky=\"false\"] {\n+  position: relative;\n+  top: 0;\n+  // margin-top: -200px;\n+}\n \n+.slate-form__wrapper[data-sticky=\"stuck\"] {\n+  position: fixed;\n+  transform: scale(1.01);\n+  top: 0;\n+  margin-top: -200px;\n+}\n \n+\n section {\n   position: relative;\n   display: grid;\n   grid-template-columns: 49.5% 60%;\n"
+                },
+                {
+                    "date": 1630621327127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -195,14 +195,10 @@\n   transform: scale(1.01);\n   margin-top: 40px;\n }\n \n-.slate-form__wrapper[data-sticky=\"false\"] {\n-  position: relative;\n-  top: 0;\n-  // margin-top: -200px;\n-}\n \n+\n .slate-form__wrapper[data-sticky=\"stuck\"] {\n   position: fixed;\n   transform: scale(1.01);\n   top: 0;\n"
+                },
+                {
+                    "date": 1630621394151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -195,15 +195,13 @@\n   transform: scale(1.01);\n   margin-top: 40px;\n }\n \n-\n-\n .slate-form__wrapper[data-sticky=\"stuck\"] {\n   position: fixed;\n   transform: scale(1.01);\n   top: 0;\n-  margin-top: -200px;\n+  margin-top: -300px;\n }\n \n \n section {\n"
+                },
+                {
+                    "date": 1630622112826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,12 +196,12 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n+  transform: none;\n   position: fixed;\n-  transform: scale(1.01);\n   top: 0;\n-  margin-top: -300px;\n+  margin-top: -200px;\n }\n \n \n section {\n"
+                },
+                {
+                    "date": 1630622121471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -197,8 +197,9 @@\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n   transform: none;\n+  transition: none;\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630622157063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -203,9 +203,15 @@\n   top: 0;\n   margin-top: -200px;\n }\n \n+.slate-form__wrapper[data-sticky=\"none\"] {\n+  transform: none;\n+  transition: none;\n+  position: fixed;\n+}\n \n+\n section {\n   position: relative;\n   display: grid;\n   grid-template-columns: 49.5% 60%;\n"
+                },
+                {
+                    "date": 1630622282914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -205,9 +205,9 @@\n }\n \n .slate-form__wrapper[data-sticky=\"none\"] {\n   transform: none;\n-  transition: none;\n+  transition: 300ms linear;\n   position: fixed;\n }\n \n \n"
+                },
+                {
+                    "date": 1630622289474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -205,9 +205,9 @@\n }\n \n .slate-form__wrapper[data-sticky=\"none\"] {\n   transform: none;\n-  transition: 300ms linear;\n+  transition: 300ms linear all;\n   position: fixed;\n }\n \n \n"
+                },
+                {
+                    "date": 1630622297272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -205,9 +205,9 @@\n }\n \n .slate-form__wrapper[data-sticky=\"none\"] {\n   transform: none;\n-  transition: 300ms linear all;\n+  transition: 1s linear all;\n   position: fixed;\n }\n \n \n"
+                },
+                {
+                    "date": 1630622312748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -204,9 +204,10 @@\n   margin-top: -200px;\n }\n \n .slate-form__wrapper[data-sticky=\"none\"] {\n-  transform: none;\n+  transform: scale(1.01);\n+\n   transition: 1s linear all;\n   position: fixed;\n }\n \n"
+                },
+                {
+                    "date": 1630622338614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,19 +196,17 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n-  transform: none;\n-  transition: none;\n+  transition: 1s ease all;\n+\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n \n .slate-form__wrapper[data-sticky=\"none\"] {\n-  transform: scale(1.01);\n-\n-  transition: 1s linear all;\n+  transition: 1s ease all;\n   position: fixed;\n }\n \n \n"
+                },
+                {
+                    "date": 1630622345876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n-  transition: 1s ease all;\n+  transition: 300ms ease all;\n \n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n"
+                },
+                {
+                    "date": 1630622355181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -197,9 +197,8 @@\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n   transition: 300ms ease all;\n-\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630622366184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n-  transition: 300ms ease all;\n+  transition: none;\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630622394289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n-  transition: none;\n+  transition: 1s ease all;\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630622408888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n-  transition: 1s ease all;\n+\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630622422949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,16 +196,15 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n-\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n \n .slate-form__wrapper[data-sticky=\"none\"] {\n-  transition: 1s ease all;\n+  transition: none;\n   position: fixed;\n }\n \n \n"
+                },
+                {
+                    "date": 1630622435454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,8 +196,9 @@\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n+  transition: none;\n   position: fixed;\n   top: 0;\n   margin-top: -200px;\n }\n"
+                },
+                {
+                    "date": 1630622453265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -188,12 +188,15 @@\n     font-size: 16px;\n   }\n }\n \n+.slate-form__wrapper {\n+  transform: scale(1.01);\n+}\n+\n .slate-form__wrapper[data-sticky=\"true\"] {\n   position: fixed;\n   top: 0;\n-  transform: scale(1.01);\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n"
+                },
+                {
+                    "date": 1630622468844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -188,15 +188,12 @@\n     font-size: 16px;\n   }\n }\n \n-.slate-form__wrapper {\n-  transform: scale(1.01);\n-}\n-\n .slate-form__wrapper[data-sticky=\"true\"] {\n   position: fixed;\n   top: 0;\n+  transform: scale(1.01);\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n"
                 }
             ],
             "date": 1629847591227,

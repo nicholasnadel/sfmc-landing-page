@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 83,
             "patches": [
                 {
                     "date": 1630347543936,
@@ -20,6 +20,326 @@
                 {
                     "date": 1630347955721,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n $(function () {\n+  refreshCSS();\n \n   function refreshCSS() {\n     let links = document.getElementsByTagName(\"link\");\n     for (let i = 0; i < links.length; i++) {\n@@ -55,8 +56,10 @@\n \n       $(\"input, select\").css(\"color\", \"black !important\");\n     }\n   }, 100); // check every 100ms\n+\n+\n });\n \n function sticky_relocate() {\n   var window_top = $(window).scrollTop();\n"
+                },
+                {
+                    "date": 1630619782632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,22 +61,17 @@\n \n });\n \n function sticky_relocate() {\n-  var window_top = $(window).scrollTop();\n-  var footer_top = $(\".bottom-cta\").offset().top;\n-  var slate_form_wrapper = $(\".slate-form__wrapper\").offset().top;\n-  var slate_form = $(\".slate-form__wrapper > div\").height();\n-  var padding = 20; // tweak here or get from margins etc\n-  if (window_top + slate_form >= footer_top - padding)\n-    $(\".slate-form__wrapper\").css({\n-      top: (window_top + slate_form - footer_top + padding) * -1,\n-    });\n-  else if (window_top + slate_form < footer_top - padding) {\n-    $(\".slate-form__wrapper\").css({\n-      top: \"\",\n-    });\n-  }\n+  $(window).scroll(function () {\n+    var hT = $('.bottom-cta').offset().top,\n+      hH = $('.bottom-cta').outerHeight(),\n+      wH = $(window).height(),\n+      wS = $(this).scrollTop();\n+    if (wS > (hT + hH - wH)) {\n+      console.log('H1 on the view!');\n+    }\n+  });\n }\n \n function msieversion() {\n   var ua = window.navigator.userAgent;\n"
+                },
+                {
+                    "date": 1630619795680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n $(function () {\n   refreshCSS();\n+  sticky_relocate();\n \n   function refreshCSS() {\n     let links = document.getElementsByTagName(\"link\");\n     for (let i = 0; i < links.length; i++) {\n@@ -28,9 +29,9 @@\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n     } else {\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n     }\n-    sticky_relocate();\n+\n     ieCSSVarPolyfill();\n   });\n \n   $(window).on(\"load resize\", function (e) {});\n"
+                },
+                {
+                    "date": 1630619852284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n       hH = $('.bottom-cta').outerHeight(),\n       wH = $(window).height(),\n       wS = $(this).scrollTop();\n     if (wS > (hT + hH - wH)) {\n-      console.log('H1 on the view!');\n+      $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n     }\n   });\n }\n \n"
+                },
+                {
+                    "date": 1630619864854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   }\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n   $(window).scroll(function () {\n     if ($(window).scrollTop() > elementPosition.top) {\n-      $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+      // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n     } else {\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n     }\n \n"
+                },
+                {
+                    "date": 1630619926354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,14 +24,24 @@\n     }\n   }\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n   $(window).scroll(function () {\n+    var hT = $('.bottom-cta').offset().top,\n+      hH = $('.bottom-cta').outerHeight(),\n+      wH = $(window).height(),\n+      wS = $(this).scrollTop();\n+\n     if ($(window).scrollTop() > elementPosition.top) {\n       // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-    } else {\n+    }\n+\n+    if (wS > (hT + hH - wH)) {\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n     }\n \n+\n+\n+\n     ieCSSVarPolyfill();\n   });\n \n   $(window).on(\"load resize\", function (e) {});\n@@ -61,20 +71,10 @@\n \n \n });\n \n-function sticky_relocate() {\n-  $(window).scroll(function () {\n-    var hT = $('.bottom-cta').offset().top,\n-      hH = $('.bottom-cta').outerHeight(),\n-      wH = $(window).height(),\n-      wS = $(this).scrollTop();\n-    if (wS > (hT + hH - wH)) {\n-      $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-    }\n-  });\n-}\n \n+\n function msieversion() {\n   var ua = window.navigator.userAgent;\n   var msie = ua.indexOf(\"MSIE \");\n \n"
+                },
+                {
+                    "date": 1630619967692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n     for (let i = 0; i < links.length; i++) {\n       if (links[i].getAttribute(\"rel\") == \"stylesheet\") {\n         let href = links[i].getAttribute(\"href\").split(\"?\")[0];\n \n-        let newHref = href + \"?version=\" + new Date().getMilliseconds();\n+        let newindow_heightref = href + \"?version=\" + new Date().getMilliseconds();\n \n-        links[i].setAttribute(\"href\", newHref);\n+        links[i].setAttribute(\"href\", newindow_heightref);\n       }\n     }\n   }\n \n@@ -25,17 +25,17 @@\n   }\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n   $(window).scroll(function () {\n     var hT = $('.bottom-cta').offset().top,\n-      hH = $('.bottom-cta').outerHeight(),\n-      wH = $(window).height(),\n-      wS = $(this).scrollTop();\n+      footer_height = $('.bottom-cta').outerHeight(),\n+      window_height = $(window).height(),\n+      window_scrollTop = $(this).scrollTop();\n \n     if ($(window).scrollTop() > elementPosition.top) {\n       // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n     }\n \n-    if (wS > (hT + hH - wH)) {\n+    if (window_scrollTop > (hT + footer_height - window_height)) {\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n     }\n \n \n"
+                },
+                {
+                    "date": 1630619975033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       window_height = $(window).height(),\n       window_scrollTop = $(this).scrollTop();\n \n     if ($(window).scrollTop() > elementPosition.top) {\n-      // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+      $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n     }\n \n     if (window_scrollTop > (hT + footer_height - window_height)) {\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n"
+                },
+                {
+                    "date": 1630619995967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       footer_height = $('.bottom-cta').outerHeight(),\n       window_height = $(window).height(),\n       window_scrollTop = $(this).scrollTop();\n \n-    if ($(window).scrollTop() > elementPosition.top) {\n+    if (window_scrollTop > 500) {\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n     }\n \n     if (window_scrollTop > (hT + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630620032622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n       $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n     }\n \n     if (window_scrollTop > (hT + footer_height - window_height)) {\n-      $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+      // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n     }\n \n \n \n"
+                },
+                {
+                    "date": 1630620047405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,28 +23,9 @@\n       scripts[i].setAttribute(\"src\", source);\n     }\n   }\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n-  $(window).scroll(function () {\n-    var hT = $('.bottom-cta').offset().top,\n-      footer_height = $('.bottom-cta').outerHeight(),\n-      window_height = $(window).height(),\n-      window_scrollTop = $(this).scrollTop();\n \n-    if (window_scrollTop > 500) {\n-      $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-    }\n-\n-    if (window_scrollTop > (hT + footer_height - window_height)) {\n-      // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-    }\n-\n-\n-\n-\n-    ieCSSVarPolyfill();\n-  });\n-\n   $(window).on(\"load resize\", function (e) {});\n   // Slate embed loads the form - doesn't exist initially.\n   var checkExist = setInterval(function () {\n     // we only want the form to be cloned & appended to for mobile once\n"
+                },
+                {
+                    "date": 1630620069836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n $(function () {\n   refreshCSS();\n   sticky_relocate();\n+  ieCSSVarPolyfill();\n \n   function refreshCSS() {\n     let links = document.getElementsByTagName(\"link\");\n     for (let i = 0; i < links.length; i++) {\n@@ -598,5 +599,26 @@\n       });\n     }\n   })();\n   //# sourceMappingURL=/sm/0d31c8eaba1cbe6281431a1768c1714c7071e7ded57ebaeec897ba2017ae561d.map\n-}\n\\ No newline at end of file\n+}\n+\n+\n+$(window).scroll(function () {\n+  var hT = $('.bottom-cta').offset().top,\n+    footer_height = $('.bottom-cta').outerHeight(),\n+    window_height = $(window).height(),\n+    window_scrollTop = $(this).scrollTop();\n+\n+  if (window_scrollTop > 500) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+  }\n+\n+  if (window_scrollTop > (hT + footer_height - window_height)) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+  }\n+\n+\n+\n+\n+\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630620081132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n $(function () {\n   refreshCSS();\n-  sticky_relocate();\n+\n   ieCSSVarPolyfill();\n \n   function refreshCSS() {\n     let links = document.getElementsByTagName(\"link\");\n@@ -613,9 +613,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (hT + footer_height - window_height)) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"wtf\");\n   }\n \n \n \n"
+                },
+                {
+                    "date": 1630620090255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -613,9 +613,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (hT + footer_height - window_height)) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"wtf\");\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n \n \n"
+                },
+                {
+                    "date": 1630620174612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -598,9 +598,8 @@\n         );\n       });\n     }\n   })();\n-  //# sourceMappingURL=/sm/0d31c8eaba1cbe6281431a1768c1714c7071e7ded57ebaeec897ba2017ae561d.map\n }\n \n \n $(window).scroll(function () {\n"
+                },
+                {
+                    "date": 1630620198561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,26 @@\n+$(window).scroll(function () {\n+  var hT = $('.bottom-cta').offset().top,\n+    footer_height = $('.bottom-cta').outerHeight(),\n+    window_height = $(window).height(),\n+    window_scrollTop = $(this).scrollTop();\n+\n+  if (window_scrollTop > 500) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+  }\n+\n+  if (window_scrollTop > (hT + footer_height - window_height)) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+  }\n+\n+\n+\n+\n+\n+});\n+\n $(function () {\n   refreshCSS();\n-\n   ieCSSVarPolyfill();\n \n   function refreshCSS() {\n     let links = document.getElementsByTagName(\"link\");\n@@ -598,26 +617,5 @@\n         );\n       });\n     }\n   })();\n-}\n-\n-\n-$(window).scroll(function () {\n-  var hT = $('.bottom-cta').offset().top,\n-    footer_height = $('.bottom-cta').outerHeight(),\n-    window_height = $(window).height(),\n-    window_scrollTop = $(this).scrollTop();\n-\n-  if (window_scrollTop > 500) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-  }\n-\n-  if (window_scrollTop > (hT + footer_height - window_height)) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-  }\n-\n-\n-\n-\n-\n-});\n\\ No newline at end of file\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1630620228759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,20 +3,16 @@\n     footer_height = $('.bottom-cta').outerHeight(),\n     window_height = $(window).height(),\n     window_scrollTop = $(this).scrollTop();\n \n-  if (window_scrollTop > 500) {\n+  if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (hT + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n-\n-\n-\n-\n });\n \n $(function () {\n   refreshCSS();\n"
+                },
+                {
+                    "date": 1630620252639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n $(window).scroll(function () {\n-  var hT = $('.bottom-cta').offset().top,\n+  var footer_top = $('.bottom-cta').offset().top,\n     footer_height = $('.bottom-cta').outerHeight(),\n     window_height = $(window).height(),\n     window_scrollTop = $(this).scrollTop();\n \n   if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (hT + footer_height - window_height)) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n });\n"
+                },
+                {
+                    "date": 1630620271363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height) && <= 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n });\n"
+                },
+                {
+                    "date": 1630620296184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height) && <= 600) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height && window_scrollTop < 600)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n });\n"
+                },
+                {
+                    "date": 1630620309267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height && window_scrollTop < 600)) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height && window_scrollTop <= 600)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n });\n"
+                },
+                {
+                    "date": 1630620317351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height && window_scrollTop <= 600)) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n });\n"
+                },
+                {
+                    "date": 1630620336109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n     footer_height = $('.bottom-cta').outerHeight(),\n     window_height = $(window).height(),\n     window_scrollTop = $(this).scrollTop();\n \n+  console.log(window_scrollTop)\n   if (window_scrollTop > 600) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n"
+                },
+                {
+                    "date": 1630620371594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     window_height = $(window).height(),\n     window_scrollTop = $(this).scrollTop();\n \n   console.log(window_scrollTop)\n-  if (window_scrollTop > 600) {\n+  if (window_scrollTop > 1200) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630620388804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n     window_scrollTop = $(this).scrollTop();\n \n   console.log(window_scrollTop)\n   if (window_scrollTop > 1200) {\n+    alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630620451132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,16 @@\n     footer_height = $('.bottom-cta').outerHeight(),\n     window_height = $(window).height(),\n     window_scrollTop = $(this).scrollTop();\n \n+\n+  var elementPosition = $(\".slate-form__wrapper\").offset();\n+\n+\n+\n+\n   console.log(window_scrollTop)\n-  if (window_scrollTop > 1200) {\n+  if (window_scrollTop > elementPosition.top) {\n     alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n"
+                },
+                {
+                    "date": 1630620463291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n \n \n   console.log(window_scrollTop)\n   if (window_scrollTop > elementPosition.top) {\n-    alert(window_scrollTop)\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+    // alert(window_scrollTop)\n+    // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n"
+                },
+                {
+                    "date": 1630620528124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \n   console.log(window_scrollTop)\n   if (window_scrollTop > elementPosition.top) {\n     // alert(window_scrollTop)\n-    // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n"
+                },
+                {
+                    "date": 1630620555362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,12 @@\n \n \n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n+  console.log(window_scrollTop)\n \n+  if ($(window).scrollTop() > elementPosition.top) {\n \n-\n-  console.log(window_scrollTop)\n-  if (window_scrollTop > elementPosition.top) {\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n"
+                },
+                {
+                    "date": 1630620596576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,17 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top) {\n+  if ($(window).scrollTop() > elementPosition.top && window_scrollTop > (footer_top + footer_height - window_height)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-  }\n+  // if (window_scrollTop > (footer_top + footer_height - window_height)) {\n+  //   $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+  // }\n \n });\n \n $(function () {\n"
+                },
+                {
+                    "date": 1630620615226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,12 @@\n   if ($(window).scrollTop() > elementPosition.top && window_scrollTop > (footer_top + footer_height - window_height)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+  } else {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+\n   }\n-\n   // if (window_scrollTop > (footer_top + footer_height - window_height)) {\n   //   $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   // }\n \n"
+                },
+                {
+                    "date": 1630620636455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top && window_scrollTop > (footer_top + footer_height - window_height)) {\n+  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n"
+                },
+                {
+                    "date": 1630620650783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height)) {\n+  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height + 100)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n"
+                },
+                {
+                    "date": 1630620655952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height + 100)) {\n+  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height - 100)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n"
+                },
+                {
+                    "date": 1630620661585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height - 100)) {\n+  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n"
+                },
+                {
+                    "date": 1630620746500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,8 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-\n   }\n   // if (window_scrollTop > (footer_top + footer_height - window_height)) {\n   //   $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   // }\n"
+                },
+                {
+                    "date": 1630620763427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n+  if ($(window).scrollTop() > elementPosition.top || window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n"
+                },
+                {
+                    "date": 1630620772772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top || window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n+  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   } else {\n"
+                },
+                {
+                    "date": 1630620877717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,14 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top && window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n+  if ($(window).scrollTop() > elementPosition.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+  } else if (window_scrollTop > (footer_top + footer_height - window_height - 200)) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   } else {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n   // if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630620890262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   if ($(window).scrollTop() > elementPosition.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-  } else if (window_scrollTop > (footer_top + footer_height - window_height - 200)) {\n+  } else if (window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   } else {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n"
+                },
+                {
+                    "date": 1630620910406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   if ($(window).scrollTop() > elementPosition.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-  } else if (window_scrollTop < (footer_top + footer_height - window_height - 200)) {\n+  } else if (window_scrollTop < (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   } else {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n"
+                },
+                {
+                    "date": 1630620927115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,16 +12,13 @@\n   if ($(window).scrollTop() > elementPosition.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-  } else if (window_scrollTop < (footer_top + footer_height - window_height)) {\n+  }\n+\n+  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-  } else {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n-  // if (window_scrollTop > (footer_top + footer_height - window_height)) {\n-  //   $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-  // }\n \n });\n \n $(function () {\n"
+                },
+                {
+                    "date": 1630620974130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,13 @@\n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n+\n+  if ($(window).scrollTop() > elementPosition.top) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+  }\n+\n });\n \n $(function () {\n   refreshCSS();\n"
+                },
+                {
+                    "date": 1630621023392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,17 +14,15 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height || (window_scrollTop < elementPosition.top))) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n \n-  if ($(window).scrollTop() > elementPosition.top) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n-  }\n \n+\n });\n \n $(function () {\n   refreshCSS();\n"
+                },
+                {
+                    "date": 1630621046660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height || (window_scrollTop < elementPosition.top))) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height || (window_scrollTop > elementPosition.top))) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n \n"
+                },
+                {
+                    "date": 1630621062058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height || (window_scrollTop > elementPosition.top))) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"null\");\n   }\n \n \n \n"
+                },
+                {
+                    "date": 1630621160341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height || (window_scrollTop > elementPosition.top))) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"null\");\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   }\n \n \n \n"
+                },
+                {
+                    "date": 1630621189845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,15 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height || (window_scrollTop > elementPosition.top))) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   }\n \n+  if (window_scrollTop > elementPosition.top) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+  }\n \n \n \n });\n"
+                },
+                {
+                    "date": 1630621203719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,11 +16,9 @@\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n-  }\n-\n-  if (window_scrollTop > elementPosition.top) {\n+  } else {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n \n"
+                },
+                {
+                    "date": 1630621350920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   } else {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+    // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n \n \n"
+                },
+                {
+                    "date": 1630621372274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,16 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n+  if ($(window).scrollTop() < elementPosition.top) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+  }\n+\n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   } else {\n-    // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+    //\n   }\n \n \n \n"
+                },
+                {
+                    "date": 1630621412174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if ($(window).scrollTop() < elementPosition.top) {\n+  if ($(window).scrollTop() <= elementPosition.top) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630621427589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if ($(window).scrollTop() <= elementPosition.top) {\n+  if ($(window).scrollTop() <= 1200) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630621442168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if ($(window).scrollTop() <= 1200) {\n+  if ($(window).scrollTop() <= cu - masthead__wrapper.top) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630621451019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if ($(window).scrollTop() <= cu - masthead__wrapper.top) {\n+  if ($(window).scrollTop() <= $('.cu-masthead__wrapper').top) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630621465890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top) {\n+  if ($(window).scrollTop() > $('.cu-masthead__wrapper').top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621473498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var elementPosition = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > $('.cu-masthead__wrapper').top) {\n+  if ($(window).scrollTop() > elementPosition.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621509699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,19 +4,19 @@\n     window_height = $(window).height(),\n     window_scrollTop = $(this).scrollTop();\n \n \n-  var elementPosition = $(\".slate-form__wrapper\").offset();\n+  var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > elementPosition.top) {\n+  if ($(window).scrollTop() > form_wrapper_offset.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if ($(window).scrollTop() <= $('.cu-masthead__wrapper').top) {\n+  if ($(window).scrollTop() <= form_wrapper_offset.top) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n@@ -53,9 +53,9 @@\n       var source = href + \"?version=\" + new Date().getMilliseconds();\n       scripts[i].setAttribute(\"src\", source);\n     }\n   }\n-  var elementPosition = $(\".slate-form__wrapper\").offset();\n+  var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   $(window).on(\"load resize\", function (e) {});\n   // Slate embed loads the form - doesn't exist initially.\n   var checkExist = setInterval(function () {\n"
+                },
+                {
+                    "date": 1630621563510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > form_wrapper_offset.top) {\n+  if ($(window).scrollTop() > $('.cu-masthead__wrapper').top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621674722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > $('.cu-masthead__wrapper').top) {\n+  if ($(window).scrollTop() > $(\".slate-form__wrapper\").offset()) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621691999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > $(\".slate-form__wrapper\").offset()) {\n+  if ($(window).scrollTop() >= $(\".slate-form__wrapper\").offset()) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621726063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,15 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() >= $(\".slate-form__wrapper\").offset()) {\n+  // if ($(window).scrollTop() >= $(\".slate-form__wrapper\").offset()) {\n \n-    // alert(window_scrollTop)\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+  //   // alert(window_scrollTop)\n+  //   $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n+  // }\n+  if (window_scrollTop > (($('.slate-form__wrapper').offset()) - window_height)) {\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   }\n \n   if ($(window).scrollTop() <= form_wrapper_offset.top) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n"
+                },
+                {
+                    "date": 1630621738588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,15 +8,12 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  // if ($(window).scrollTop() >= $(\".slate-form__wrapper\").offset()) {\n+  if ($(window).scrollTop() >= $(\".slate-form__wrapper\").offset()) {\n \n-  //   // alert(window_scrollTop)\n-  //   $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n-  // }\n-  if (window_scrollTop > (($('.slate-form__wrapper').offset()) - window_height)) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n+    // alert(window_scrollTop)\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if ($(window).scrollTop() <= form_wrapper_offset.top) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n"
+                },
+                {
+                    "date": 1630621743707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() >= $(\".slate-form__wrapper\").offset()) {\n+  if ($(window).scrollTop() > form_wrapper_offset.top) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621752189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > form_wrapper_offset.top) {\n+  if ($(window).scrollTop() > 800) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621867479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > 800) {\n+  if ($(window).scrollTop() > 218) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621976417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n $(window).scroll(function () {\n   var footer_top = $('.bottom-cta').offset().top,\n     footer_height = $('.bottom-cta').outerHeight(),\n     window_height = $(window).height(),\n-    window_scrollTop = $(this).scrollTop();\n+    window_scrollTop = $(this).scrollTop(),\n+    form_top = $('.slate-form__wrapper').offset().top,\n+    form_height = $('.slate-form__wrapper').outerHeight();\n \n \n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n"
+                },
+                {
+                    "date": 1630621990408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n-  if ($(window).scrollTop() > 218) {\n+  if ($(window).scrollTop() > form_top + form_height - window_height) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630621999106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if ($(window).scrollTop() <= form_wrapper_offset.top) {\n-    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+    // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n"
+                },
+                {
+                    "date": 1630622029431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,16 +10,18 @@\n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n   console.log(window_scrollTop)\n \n+  console.log(form_height)\n+\n   if ($(window).scrollTop() > form_top + form_height - window_height) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if ($(window).scrollTop() <= form_wrapper_offset.top) {\n-    // $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n+    $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n"
+                },
+                {
+                    "date": 1630622044440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   console.log(window_scrollTop)\n \n   console.log(form_height)\n \n-  if ($(window).scrollTop() > form_top + form_height - window_height) {\n+  if ($(window).scrollTop() >= form_top + form_height - window_height) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630622053816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   console.log(window_scrollTop)\n \n   console.log(form_height)\n \n-  if ($(window).scrollTop() >= form_top + form_height - window_height) {\n+  if ($(window).scrollTop() >= 800) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630622059881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   console.log(window_scrollTop)\n \n   console.log(form_height)\n \n-  if ($(window).scrollTop() >= 800) {\n+  if ($(window).scrollTop() >= 750) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630622066983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   console.log(window_scrollTop)\n \n   console.log(form_height)\n \n-  if ($(window).scrollTop() >= 750) {\n+  if ($(window).scrollTop() >= 720) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630622072151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   console.log(window_scrollTop)\n \n   console.log(form_height)\n \n-  if ($(window).scrollTop() >= 720) {\n+  if ($(window).scrollTop() >= 700) {\n \n     // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n"
+                },
+                {
+                    "date": 1630622087817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,8 @@\n \n   console.log(form_height)\n \n   if ($(window).scrollTop() >= 700) {\n-\n-    // alert(window_scrollTop)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n   if ($(window).scrollTop() <= form_wrapper_offset.top) {\n"
+                },
+                {
+                    "date": 1630622188434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,17 +8,13 @@\n \n \n   var form_wrapper_offset = $(\".slate-form__wrapper\").offset();\n \n-  console.log(window_scrollTop)\n-\n-  console.log(form_height)\n-\n   if ($(window).scrollTop() >= 700) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"true\");\n   }\n \n-  if ($(window).scrollTop() <= form_wrapper_offset.top) {\n+  if ($(window).scrollTop() <= 700) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n"
+                },
+                {
+                    "date": 1630622231238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n+    alert(footer_top + footer_height)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   } else {\n     //\n   }\n"
+                },
+                {
+                    "date": 1630622243445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n   if (window_scrollTop > (footer_top + footer_height - window_height)) {\n-    alert(footer_top + footer_height)\n+    alert(footer_top + footer_height - window_height)\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   } else {\n     //\n   }\n"
+                },
+                {
+                    "date": 1630622254616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,10 @@\n   if ($(window).scrollTop() <= 700) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height)) {\n-    alert(footer_top + footer_height - window_height)\n+  if (window_scrollTop > (footer_top + footer_height - window_height + 200)) {\n+\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   } else {\n     //\n   }\n"
+                },
+                {
+                    "date": 1630622260337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n   if ($(window).scrollTop() <= 700) {\n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"false\");\n   }\n \n-  if (window_scrollTop > (footer_top + footer_height - window_height + 200)) {\n+  if (window_scrollTop > (footer_top + footer_height - window_height 0 200)) {\n \n     $(\".slate-form__wrapper\").attr(\"data-sticky\", \"stuck\");\n   } else {\n     //\n"
                 }
             ],
             "date": 1630347543936,
