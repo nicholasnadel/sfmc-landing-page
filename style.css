@@ -276,6 +276,7 @@ ul.why {
     position: fixed; }
 
 .mobile-only {
+  padding: 40px;
   display: none; }
   .mobile-only .slate-form__wrapper[data-sticky="true"] {
     position: relative;

@@ -359,6 +359,7 @@ ul.why {
 }
 
 .mobile-only {
+  padding: 40px;
   display: none;
 
   .slate-form__wrapper[data-sticky="true"] {
@@ -657,6 +658,7 @@ div.form_p {
     }
 
     .mobile-only {
+
       .slate-form__wrapper {
         margin-left: 0;
       }

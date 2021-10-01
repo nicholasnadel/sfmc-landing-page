@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 247,
+            "activePatchIndex": 251,
             "patches": [
                 {
                     "date": 1630347543936,
@@ -996,6 +996,22 @@
                 {
                     "date": 1633055249968,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,17 +40,17 @@\n     let mobileOnlyForm = document.querySelector('.mobile-only form');\n     if (window.matchMedia('(max-width: 1300px)').matches) {\n       slateFormDesktop.setAttribute('data-sticky', 'false');\n \n-      if (mobileOnlyDiv !== null) {\n+      if (slateFormMobile !== null) {\n         mobileOnlyDiv.appendChild(slateFormMobile);\n       }\n \n     } else if (window.matchMedia('(min-width: 1299px)').matches) {\n       // if mobileOnlyForm exists\n \n       // if mobileOnlyForm is not in mobileOnlyDiv\n-      if (desktopOnlyDiv !== null) {\n+      if (mobileOnlyForm !== null) {\n         desktopOnlyDiv.appendChild(mobileOnlyForm);\n       }\n \n     }\n"
+                },
+                {
+                    "date": 1633062338982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n \n       // if mobileOnlyForm is not in mobileOnlyDiv\n       if (mobileOnlyForm !== null) {\n         desktopOnlyDiv.appendChild(mobileOnlyForm);\n+        document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyForm);\n       }\n \n     }\n   }\n"
+                },
+                {
+                    "date": 1633062380683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,17 +42,17 @@\n       slateFormDesktop.setAttribute('data-sticky', 'false');\n \n       if (slateFormMobile !== null) {\n         mobileOnlyDiv.appendChild(slateFormMobile);\n+        document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyForm);\n       }\n \n     } else if (window.matchMedia('(min-width: 1299px)').matches) {\n       // if mobileOnlyForm exists\n \n       // if mobileOnlyForm is not in mobileOnlyDiv\n       if (mobileOnlyForm !== null) {\n         desktopOnlyDiv.appendChild(mobileOnlyForm);\n-        document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyForm);\n       }\n \n     }\n   }\n"
+                },
+                {
+                    "date": 1633062413523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n       slateFormDesktop.setAttribute('data-sticky', 'false');\n \n       if (slateFormMobile !== null) {\n         mobileOnlyDiv.appendChild(slateFormMobile);\n-        document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyForm);\n+        document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyDiv);\n       }\n \n     } else if (window.matchMedia('(min-width: 1299px)').matches) {\n       // if mobileOnlyForm exists\n"
+                },
+                {
+                    "date": 1633062496696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n       slateFormDesktop.setAttribute('data-sticky', 'false');\n \n       if (slateFormMobile !== null) {\n         mobileOnlyDiv.appendChild(slateFormMobile);\n+        // structural change was requested for the mobile form to sit at the top rather than the bottom. lazily using JS to do this instead of editing each page\n         document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyDiv);\n       }\n \n     } else if (window.matchMedia('(min-width: 1299px)').matches) {\n"
                 }
             ],
             "date": 1630347543936,

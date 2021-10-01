@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 49,
+            "activePatchIndex": 51,
             "patches": [
                 {
                     "date": 1629847591227,
@@ -204,6 +204,14 @@
                 {
                     "date": 1633045178765,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -357,9 +357,9 @@\n     position: fixed;\n   }\n }\n \n-.mobile-only{\n+.mobile-only {\n   display: none;\n \n   .slate-form__wrapper[data-sticky=\"true\"] {\n     position: relative;\n@@ -527,9 +527,9 @@\n   .desktop-only {\n     display: none;\n   }\n \n-  .mobile-only * {\n+  .mobile-only {\n     display: block;\n     height: auto;\n   }\n }\n"
+                },
+                {
+                    "date": 1633056337133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -656,8 +656,10 @@\n       }\n     }\n \n     .mobile-only {\n+      padding: 40px;\n+\n       .slate-form__wrapper {\n         margin-left: 0;\n       }\n \n"
+                },
+                {
+                    "date": 1633056697212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -358,8 +358,9 @@\n   }\n }\n \n .mobile-only {\n+  padding: 40px;\n   display: none;\n \n   .slate-form__wrapper[data-sticky=\"true\"] {\n     position: relative;\n@@ -656,9 +657,8 @@\n       }\n     }\n \n     .mobile-only {\n-      padding: 40px;\n \n       .slate-form__wrapper {\n         margin-left: 0;\n       }\n"
                 }
             ],
             "date": 1629847591227,

@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (slateFormMobile !== null) {
         mobileOnlyDiv.appendChild(slateFormMobile);
+        // structural change was requested for the mobile form to sit at the top rather than the bottom. lazily using JS to do this instead of editing each page
+        document.querySelector('.cu-masthead__wrapper').appendChild(mobileOnlyDiv);
       }
 
     } else if (window.matchMedia('(min-width: 1299px)').matches) {
