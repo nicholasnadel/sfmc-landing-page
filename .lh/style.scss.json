@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 45,
+            "activePatchIndex": 49,
             "patches": [
                 {
                     "date": 1629847591227,
@@ -188,6 +188,22 @@
                 {
                     "date": 1630622468844,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -188,15 +188,12 @@\n     font-size: 16px;\n   }\n }\n \n-.slate-form__wrapper {\n-  transform: scale(1.01);\n-}\n-\n .slate-form__wrapper[data-sticky=\"true\"] {\n   position: fixed;\n   top: 0;\n+  transform: scale(1.01);\n   margin-top: 40px;\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n"
+                },
+                {
+                    "date": 1633038986071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -197,9 +197,9 @@\n }\n \n .slate-form__wrapper[data-sticky=\"stuck\"] {\n   transition: none;\n-  position: fixed;\n+  position: relative;\n   top: 0;\n   margin-top: -200px;\n }\n \n"
+                },
+                {
+                    "date": 1633040161750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -353,9 +353,9 @@\n .desktop-only {\n   display: block;\n }\n \n-.mobile-only {\n+.mobile-only{\n   display: none;\n \n   .slate-form__wrapper[data-sticky=\"true\"] {\n     position: relative;\n@@ -519,13 +519,13 @@\n   .testimonial__name {\n     margin-left: 0;\n   }\n \n-  .desktop-only {\n+  .desktop-only * {\n     display: none;\n   }\n \n-  .mobile-only {\n+  .mobile-only * {\n     display: block;\n     height: auto;\n   }\n }\n"
+                },
+                {
+                    "date": 1633040694085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -351,8 +351,12 @@\n }\n \n .desktop-only {\n   display: block;\n+\n+  &--fixed {\n+    position: fixed;\n+  }\n }\n \n .mobile-only{\n   display: none;\n@@ -519,9 +523,9 @@\n   .testimonial__name {\n     margin-left: 0;\n   }\n \n-  .desktop-only * {\n+  .desktop-only {\n     display: none;\n   }\n \n   .mobile-only * {\n"
+                },
+                {
+                    "date": 1633045178765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -357,9 +357,9 @@\n     position: fixed;\n   }\n }\n \n-.mobile-only{\n+.mobile-only {\n   display: none;\n \n   .slate-form__wrapper[data-sticky=\"true\"] {\n     position: relative;\n@@ -527,9 +527,9 @@\n   .desktop-only {\n     display: none;\n   }\n \n-  .mobile-only * {\n+  .mobile-only {\n     display: block;\n     height: auto;\n   }\n }\n"
                 }
             ],
             "date": 1629847591227,

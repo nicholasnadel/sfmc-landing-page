@@ -156,7 +156,7 @@
 
 .slate-form__wrapper[data-sticky="stuck"] {
   transition: none;
-  position: fixed;
+  position: relative;
   top: 0;
   margin-top: -200px; }
 
@@ -272,6 +272,8 @@ ul.why {
 
 .desktop-only {
   display: block; }
+  .desktop-only--fixed {
+    position: fixed; }
 
 .mobile-only {
   display: none; }
